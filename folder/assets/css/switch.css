@@ -1,0 +1,31 @@
+body{
+    position: relative;
+}
+.item{
+
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: grey;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    
+}
+
+.list{
+    display: flex;
+    gap: 10px;
+    position: absolute;
+}
+
+.active{
+    background-color: rgb(41, 19, 211);
+}

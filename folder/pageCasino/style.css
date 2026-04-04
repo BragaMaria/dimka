@@ -1,0 +1,37 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+.browser-header {
+      background: linear-gradient(to bottom, #2a4a7a, #1a3a6a);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .btn {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ff5f57;
+    }
+
+    .arrow img{
+      width: 30px;
+      cursor: pointer;
+    }
+    .btn:nth-child(2) { background: #febc2e; }
+    .btn:nth-child(3) { background: #28c940; }
+
+    .url-bar {
+      flex: 1;
+      background: #0d1b33;
+      border: 1px solid #3a5a8a;
+      border-radius: 4px;
+      padding: 6px 10px;
+      color: #8ac2ff;
+      font-family: "Courier New", monospace;
+    }

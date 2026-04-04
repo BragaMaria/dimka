@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/switch.css">
+    <link rel="stylesheet" href="index3.css">
+
+</head>
+<body>
+
+
+<div class="phone">
+
+  <div class="status-bar">
+    <div class="left">
+      <span>…l</span>
+      <span>☀</span>
+      <span>Вс</span>
+    </div>
+    <div class="center icon2">
+      <img  src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt="">
+      <span>iFruit</span>
+    </div>
+    <div class="right">
+      <span id="time">13:00</span>
+      <span>□</span>
+    </div>
+  </div>
+
+  <div class="header" id="header">Список дел</div>
+
+  <div class="icons">
+
+    <div class="icon" data-title="Почта">
+      <div style="position:relative">
+        <img src="https://img.icons8.com/fluency/96/000000/apple-mail.png" alt="mail">
+        <div class="badge">4</div>
+      </div>
+      
+    </div>
+
+    <div class="icon" data-title="SMS">
+      <img src="../assets/images/photo_2026-02-21_15-27-14 (1).png" alt="chat">
+      
+    </div>
+
+    <div class="icon" data-title="Контакты">
+      <img src="../assets/images/photo_2026-02-21_15-18-47.png" alt="contacts">
+      
+    </div>
+
+    <div class="icon" data-title="SecuroServ">
+      <img src="../assets/images/image_1771669922481.png" alt="camera">
+      
+    </div>
+
+    <div class="icon" data-title="Клуб Вайнвуда">
+      <img src="../assets/images/image_1771670086082.png" alt="club">
+      
+    </div>
+
+    <div class="icon" data-title="Список дел">
+      <img src="../assets/images/photo_2026-02-28_15-37-42.png" alt="todo">
+      
+    </div>
+
+    <div class="icon" data-title="Настройки">
+      <img src="../assets/images/settings.png" alt="cmc">
+     
+    </div>
+
+    <div class="icon" data-title="Быстрая игра">
+      <img src="../assets/images/photo_2026-02-28_15-23-20.png" alt="game">
+      
+    </div>
+
+    <div class="icon internet" data-title="Интернет">
+      <img src="../assets/images/photo_2026-02-21_15-21-56.png" alt="game">
+      
+    </div>
+
+  </div>
+
+  <div class="dock">
+    <div class="btn icon3"><img src="../assets/images/photo_2026-02-28_15-51-04.jpg" alt=""></div>
+    <div class="btn icon3"><img  src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt=""></div>
+    <div class="btn">←</div>
+  </div>
+
+</div>
+
+
+
+    <div class="list">
+        <div class="item"><a href="../page1/index.html">1</a></div>
+        <div class="item"><a href="../page2/index2.html">2</a></div>
+        <div class="item active"><a href="../page3/index3.html">3</a></div>
+        <div class="item"><a href="../page4/index4.html">4</a></div>
+        
+    </div>
+
+    <script>
+ 
+  
+
+  // Смена заголовка при клике
+  document.querySelectorAll(".icon").forEach(el => {
+    el.addEventListener('mouseover', () => {
+      const title = el.dataset.title || "Неизвестно";
+      document.getElementById("header").textContent = title;
+    });
+  });
+
+  document.querySelector('.internet').addEventListener('click',()=>{
+    window.location.href = '../pageInternet/index.html'
+  })
+
+
+  // === Настройки времени как в GTA V ===
+const REAL_SECONDS_PER_GAME_MINUTE = 2;     // 2 секунды реального времени = 1 игровая минута
+const GAME_MINUTES_PER_DAY = 1440;           // 24 часа × 60 минут
+const REAL_MS_PER_GAME_DAY = GAME_MINUTES_PER_DAY * REAL_SECONDS_PER_GAME_MINUTE * 1000; // ≈ 48 минут
+
+// Начальное время (можно поменять)
+let gameHour = 13;
+let gameMinute = 7;
+
+// Массив дней недели (начинаем с воскресенья, как часто в примерах GTA)
+const daysOfWeek = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
+let currentDayIndex = 6; // 0 = Вс
+
+const timeElement = document.getElementById("time");
+const dayElement = document.querySelector(".status-bar .left span:nth-child(3)"); // элемент с днём недели
+
+// Функция форматирования времени (08:05 → 8:05, 13:40 → 13:40)
+function formatGameTime() {
+  const h = String(gameHour).padStart(2, "0");
+  const m = String(gameMinute).padStart(2, "0");
+  return `${h}:${m}`;
+}
+
+// Обновление отображения
+function renderTimeAndDay() {
+  timeElement.textContent = formatGameTime();
+  dayElement.textContent = daysOfWeek[currentDayIndex];
+}
+
+// Основной тик времени
+function advanceGameTime() {
+  gameMinute++;
+
+  if (gameMinute >= 60) {
+    gameMinute = 0;
+    gameHour++;
+
+    if (gameHour >= 24) {
+      gameHour = 0;
+      // Смена дня недели
+      currentDayIndex = (currentDayIndex + 1) % 7;
+      renderTimeAndDay(); // день сменился → сразу обновляем и день
+    }
+  }
+
+  renderTimeAndDay();
+}
+
+// Запускаем игру времени
+setInterval(advanceGameTime, REAL_SECONDS_PER_GAME_MINUTE * 1000);
+
+// Первое отображение (чтобы не ждать первую итерацию)
+renderTimeAndDay();
+
+// ────────────────────────────────────────────────
+// Если хочешь задать время вручную (для теста):
+// gameHour = 23;
+// gameMinute = 55;
+// currentDayIndex = 5; // Пт
+// renderTimeAndDay();
+// ────────────────────────────────────────────────
+</script>
+</body>
+</html>

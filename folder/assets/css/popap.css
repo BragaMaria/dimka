@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+}
+
+.openDialogBtn {
+    cursor: pointer;
+    margin: 20px;
+}
+
+#myDialog {
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    /* Уберите background-image из CSS, если хотите только динамическое изображение */
+    /* Или оставьте как фолбэк: */
+    background-image: none; /* или удалите эту строку */
+    color: lime;
+    /* Добавьте для лучшего отображения текста поверх изображения */
+    background-color: rgba(0, 0, 0, 0.7); /* полупрозрачный фон для читаемости */
+}
+
+/* Для лучшей читаемости текста поверх изображения */
+.dialog-content {
+    background-color: rgba(0, 0, 0, 0.6); /* полупрозрачный фон контента */
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px); /* легкое размытие фона */
+}
+
+#popup-title, #popup-description, #popup-list {
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* тень для текста */
+}
+
+
+#myDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-content {
+    padding: 30px;
+    position: relative;
+    min-width: 300px;
+}
+
+.closeDialogBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 5px 10px;
+}
+
+.scroll-lock {
+    overflow: hidden;
+}
+
+.popap_list li{
+margin-bottom: 10px;
+}

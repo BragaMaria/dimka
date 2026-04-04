@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EyeFind.info — Поиск и всё остальное</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Добавим стили для поиска */
+      .ad-card.hidden {
+        display: none;
+      }
+      
+      .no-results {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 40px;
+        font-size: 18px;
+        color: #666;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        margin-top: 20px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="browser-frame">
+      <div class="browser-header">
+        <div class="btn red"></div>
+        <div class="btn exit"></div>
+        <div class="btn exit"></div>
+        <div class="arrow exit"><img src="../assets/images/left-arrow_13111533.png" alt=""></div>
+        <div class="arrow exit"><img src="../assets/images/right-arrow_13111533.png" alt=""></div>
+
+        <input type="text" class="url-bar" value="www.eyefind.info" readonly />
+      </div>
+
+      <div class="main-header">
+        <div class="weather">
+          <div class="city">Гора Чилиад</div>
+          <div class="weather-block">
+            <div>
+            <span>Пн</span>
+            <span>+28°</span>
+            </div>
+            <img class="sun_cloud" src="../assets/images/f3ea4.png" alt=""> 
+            </div>
+        </div>
+
+        <h1 class="logo">eye<span>find</span>.info</h1>
+        <div class="slogan">...это как система труб...</div>
+
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Поиск EyeFind" />
+          <button class="search-btn" id="search-btn">Q</button>
+          <button class="lucky-btn"><a href="../pageError/index.html" style="color:aquamarine">СЛУЧАЙНЫЕ</a></button>
+        </div>
+      </div>
+
+      <div class="categories">
+        <a href="../pageError/index.html">СМИ и РАЗВЛЕЧЕНИЯ</a>
+        <a href="../pageError/index.html">ЕДА и НАПИТКИ</a>
+        <a href="../pageError/index.html">ДЕНЬГИ и УСЛУГИ</a>
+        <a href="../pageError/index.html">ПУТЕШЕСТВИЯ и ТРАНСПОРТ</a>
+        <a href="../pageError/index.html">МОДА и ЗДОРОВЬЕ</a>
+      </div>
+
+      <div class="ads-grid">
+        <div class="ad-card">
+          <div class="ad-img-placeholder">
+            <div class="ad-img-placeholder-text">РЕКЛАМА</div>
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/Unknown-3.webp"
+              alt="GTA Online"
+            />
+          </div>
+        </div>
+        <div class="ad-card">
+          <div class="ad-img-placeholder">
+            <div class="ad-img-placeholder-text">РЕКЛАМА</div>
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/Unknown-4.webp"
+              alt="Prix Luxury Real Estate"
+            />
+          </div>
+        </div>
+         <div class="ad-card">
+          <a href="../pageCasino/index.html">
+          <div class="ad-img-placeholder">
+            <div class="ad-img-placeholder-text">РЕКЛАМА</div>
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/Unknown-7.webp"
+              alt="Maze Bank"
+            />
+          </div>
+          </a>
+        </div>
+
+        <div class="ad-card">
+          <div class="ad-img-placeholder">
+            <div class="ad-img-placeholder-text">РЕКЛАМА</div>
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/Unknown-5.webp"
+              alt="GTA Online Updates"
+            />
+          </div>
+        </div>
+
+        <div class="ad-card">
+          <div class="ad-img-placeholder">
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/IMG_20260307_153328.webp"
+              alt="San Andreas"
+            />
+          </div>
+        </div>
+        
+        <div class="ad-card">
+          <div class="ad-img-placeholder">
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/IMG_20260307_152950.webp"
+              alt="Los Santos Customs"
+            />
+          </div>
+        </div>
+
+        <div class="ad-card">
+          <div class="ad-img-placeholder">
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/IMG_20260307_153733.webp"
+              alt="Vinewood"
+            />
+          </div>
+        </div>
+
+        <div class="ad-card">
+          <div class="ad-img-placeholder">
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/Unknown-6.webp"
+              alt="BAWSAQ"
+            />
+          </div>
+        </div>
+
+        <div class="ad-card">
+          <div class="ad-img-placeholder">
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/IMG_20260307_154418.webp"
+              alt="GTA V Online"
+            />
+          </div>
+        </div>
+
+        <div class="ad-card">
+          <div class="ad-img-placeholder">
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/IMG_20260307_154935.webp"
+              alt="GTA Forums"
+            />
+          </div>
+        </div>
+
+        <div class="ad-card">
+          <div class="ad-img-placeholder">
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/IMG_20260307_155111.webp"
+              alt="GTA 6 News"
+            />
+          </div>
+        </div>
+
+        <div class="ad-card">
+          <a href="../pageDockTease/index.html">
+          <div class="ad-img-placeholder">
+            <img
+              class="ad-img-placeholder-img"
+              src="../assets/images/IMG_20260307_155642.webp"
+              alt="DockTease"
+            />
+            
+          </div>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Добавляем элемент для сообщения "ничего не найдено" -->
+      <div id="no-results" class="no-results">По вашему запросу ничего не найдено</div>
+    </div>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const cards = document.querySelectorAll('.ad-card');
+    const noResults = document.getElementById('no-results');
+    
+    console.log('Скрипт загружен!');
+    
+    // Добавляем ключевые слова для каждой карточки вручную
+    const keywords = [
+      'legendary motosport',                    // 1 карточка
+      'luxury real estate недвижимость элитная',        // 2 карточка
+      'maze bank банк деньги финансы',                  // 3 карточка
+      'diamond casino',                   // 4 карточка
+      'san andreas игра gta',                            // 5 карточка
+      'los santos customs тюнинг авто транспорт',        // 6 карточка
+      'vinewood развлечения шоу голливуд',               // 7 карточка
+      'bawsaq биржа финансы инвестиции акции',           // 8 карточка
+      'gta online мультиплеер',                          // 9 карточка
+      'gta форумы обсуждения сообщество',                // 10 карточка
+      'gta 6 новости слухи',                             // 11 карточка
+      'gta читы коды секреты'                            // 12 карточка
+    ];
+    
+    // Функция поиска
+    function performSearch() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+      
+      console.log('Поиск по запросу: "' + searchTerm + '"');
+      
+      cards.forEach((card, index) => {
+        // Получаем ключевые слова для этой карточки
+        const cardKeywords = keywords[index] || '';
+        
+        // Получаем alt текст изображения
+        const img = card.querySelector('img');
+        const altText = img ? img.alt.toLowerCase() : '';
+        
+        // Получаем текст из placeholder (РЕКЛАМА)
+        const placeholderText = card.querySelector('.ad-img-placeholder-text');
+        const placeholderContent = placeholderText ? placeholderText.textContent.toLowerCase() : '';
+        
+        // Объединяем всё для поиска
+        const searchableText = cardKeywords + ' ' + altText + ' ' + placeholderContent;
+        
+        console.log(`Карточка ${index + 1}:`, {
+          keywords: cardKeywords,
+          alt: altText,
+          searchableText: searchableText
+        });
+        
+        // Если поисковый запрос пустой - показываем все карточки
+        if (searchTerm === '') {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } 
+        // Иначе проверяем, есть ли совпадение в поисковом тексте
+        else if (searchableText.includes(searchTerm)) {
+          card.classList.remove('hidden');
+          visibleCount++;
+          console.log(`✓ Карточка ${index + 1} подходит`);
+        } else {
+          card.classList.add('hidden');
+          console.log(`✗ Карточка ${index + 1} не подходит`);
+        }
+      });
+      
+      console.log('Найдено карточек:', visibleCount);
+      
+      // Показываем сообщение если ничего не найдено
+      if (noResults) {
+        if (visibleCount === 0 && searchTerm !== '') {
+          noResults.style.display = 'block';
+        } else {
+          noResults.style.display = 'none';
+        }
+      }
+    }
+    
+    // Добавляем обработчики событий
+    searchInput.addEventListener('input', function() {
+      // Используем setTimeout для оптимизации
+      clearTimeout(window.searchTimeout);
+      window.searchTimeout = setTimeout(performSearch, 300);
+    });
+    
+    if (searchBtn) {
+      searchBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        performSearch();
+      });
+    }
+    
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        performSearch();
+      }
+    });
+
+     let btn_exit = document.querySelector('.red').addEventListener('click',()=>{
+            window.location = '../page3/index3.html'
+        })
+
+      let btn_exits = document.querySelectorAll('.exit').forEach((e)=>e.addEventListener('click',()=>{
+            window.location = '../pageError/index.html'
+        }))
+    
+    // Выполняем поиск при загрузке (показывает все карточки)
+    performSearch();
+  });
+</script>
+  </body>
+</html>

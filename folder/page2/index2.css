@@ -1,0 +1,57 @@
+body{
+    background-image: url('../assets/images/orig.webp');
+    position: relative;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+.flex{
+    display: flex;
+}
+
+.all_cars{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly
+}
+.block_mazda_rx7{
+    display: flex;
+    align-items: center
+}
+
+
+.mazda_rx7{
+  width: 500px;
+
+height: 260px;}
+
+.list_param li,.price{
+    color: white;
+}
+
+.block_text{
+    width: 300px;
+    height: 290px;
+    background-color: blue;
+    border-radius: 20px;
+
+    font-size: 13px;
+    padding: 10px;
+    position: relative;
+   
+    
+}
+
+.price{
+    font-size: 13px
+}
+
+.block_text_flag{
+    width: 50px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

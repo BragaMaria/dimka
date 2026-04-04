@@ -1,0 +1,81 @@
+body{
+    font-family: "Press Start 2P", system-ui;
+     background-image: url('../assets/images/orig.webp');
+     font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+}
+
+.h1{
+    color: #474389;
+    font-size: 48px;
+    background: rgba(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    letter-spacing: 4px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.h2{
+    color: #474389;
+    font-size: 30px;
+    background: rgba(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    letter-spacing: 4px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.flex{
+    display: flex;
+}
+
+.all_cars{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+.block_mazda_rx7{
+    display: flex;
+    align-items: center
+}
+
+
+.mazda_rx7{
+  width: 500px;
+
+height: 260px;}
+
+.list_param li,.price{
+    color: white;
+}
+
+.block_text{
+    width: 300px;
+    height: 290px;
+    background-color: blue;
+    border-radius: 20px;
+
+    
+    padding: 10px;
+    position: relative;
+   
+    
+}
+
+
+
+.block_text_flag{
+    width: 50px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.list{
+   top: 1000px;
+}
