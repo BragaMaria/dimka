@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #050814;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at top left, rgba(84, 176, 255, 0.65), transparent 26%),
+                radial-gradient(circle at top right, rgba(176, 86, 255, 0.55), transparent 24%),
+                radial-gradient(circle at bottom, rgba(34, 255, 206, 0.4), transparent 22%),
+                linear-gradient(180deg, rgba(2, 11, 32, 0.96), rgba(4, 8, 23, 0.96));
+            z-index: 0;
+            animation: glowShift 14s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 30%, rgba(255, 255, 255, 0.04));
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes glowShift {
+            0%, 100% {
+                transform: scale(1) translate(0, 0);
+            }
+            50% {
+                transform: scale(1.08) translate(8%, -6%);
+            }
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 38px 36px;
+            max-width: 720px;
+            width: calc(100% - 40px);
+            border-radius: 28px;
+            background: rgba(4, 12, 31, 0.58);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 90px rgba(1, 8, 22, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        h1 {
+            margin: 0 0 18px;
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            letter-spacing: -0.03em;
+        }
+
+        p {
+            margin: 0 0 32px;
+            color: #d2d6ff;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 36px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #7feaef, #8e6cff);
+            color: #050814;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            box-shadow: 0 18px 40px rgba(126, 234, 239, 0.24);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 26px 62px rgba(126, 234, 239, 0.28);
+            filter: brightness(1.05);
+        }
+
+        .button:active {
+            transform: translateY(0) scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Добро пожаловать на сайт Димы</h1>
+        <a class="button" href="page1/index.html">Войти на сайт</a>
+    </section>
+</body>
+</html>
