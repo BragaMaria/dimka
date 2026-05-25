@@ -1,0 +1,193 @@
+﻿<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Интерактивная доска</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="board-page">
+      <header class="board-header">
+        <button id="clearAllBtn" class="primary-btn">Очистить все</button>
+        <button id="clearAllBtn" class="primary-btn b">Назад</button>
+      </header>
+
+      <div class="board-layout">
+        <main class="board-area">
+          <div class="grid-wrapper">
+            <div id="boardGrid" class="board-grid"></div>
+          </div>
+          <div class="board-footer">
+            <span>Выбранный блок:</span>
+            <span id="selectedBlockName">никто</span>
+          </div>
+        </main>
+
+        <aside class="sidebar">
+          <h2>Блоки Minecraft</h2>
+          <div class="blocks-list">
+            <button
+              class="block-item"
+              data-block="block1"
+              data-src="../assets/images/1%20(1).png"
+              data-label="красный кирпич"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/1%20(1).png"
+                alt="красный кирпич"
+              />
+              <span>красный кирпич</span>
+            </button>
+            <button
+              class="block-item"
+              data-block="grass"
+              data-src="../assets/images/52d95c6e49cf616e3dd8a7fed84d23b1%20(1).png"
+              data-label="Голубое стекло"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/52d95c6e49cf616e3dd8a7fed84d23b1%20(1).png"
+                alt="Голубое стекло"
+              />
+              <span>Голубое стекло</span>
+            </button>
+            <button
+              class="block-item"
+              data-block="stone"
+              data-src="../assets/images/Deepslate_Coal_Ore_JE1_BE2%20(1).png"
+              data-label="Глубинная угольная руда"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/Deepslate_Coal_Ore_JE1_BE2%20(1).png"
+                alt="Глубинная угольная руда"
+              />
+              <span>Глубинная угольная руда</span>
+            </button>
+            <button
+              class="block-item"
+              data-block="flag"
+              data-src="../assets/images/Flag_of_Russia.svg.webp"
+              data-label="Флаг"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/Flag_of_Russia.svg.webp"
+                alt="Флаг"
+              />
+              <span>Карта с флагом России</span>
+            </button>
+            <button
+              class="block-item"
+              data-block="ore"
+              data-src="../assets/images/GfoAfTsFHtOmvIXwCBWgjiNTdAIEDNxmxGjGDvH2jKZguI6JutTTmwTj0z-ee4IPDcrkgHxl_MoMPawqUvOITyj-.png"
+              data-label="Руда"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/GfoAfTsFHtOmvIXwCBWgjiNTdAIEDNxmxGjGDvH2jKZguI6JutTTmwTj0z-ee4IPDcrkgHxl_MoMPawqUvOITyj-.png"
+                alt="Руда"
+              />
+              <span>Руда</span>
+            </button>
+            <button
+              class="block-item"
+              data-block="dirt"
+              data-src="../assets/images/i%20(2).png"
+              data-label="Земля"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/i%20(2).png"
+                alt="Земля"
+              />
+              <span>Земля</span>
+            </button>
+            <button
+              class="block-item"
+              data-block="wood"
+              data-src="../assets/images/Oak_Stairs_(N)_JE7_BE6%20(1).png"
+              data-label="Дерево"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/Oak_Stairs_(N)_JE7_BE6%20(1).png"
+                alt="Дерево"
+              />
+              <span>Дерево</span>
+            </button>
+            <button
+              class="block-item"
+              data-block="water"
+              data-src="../assets/images/i%20(4)%20(1).png"
+              data-label="Вода"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/i%20(4)%20(1).png"
+                alt="Вода"
+              />
+              <span>Вода</span>
+            </button>
+            <button
+              class="block-item"
+              data-block="sand"
+              data-src="../assets/images/i%20(5)%20(1).png"
+              data-label="Песок"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/i%20(5)%20(1).png"
+                alt="Песок"
+              />
+              <span>Песок</span>
+            </button>
+            <button
+              class="block-item"
+              data-block="photo"
+              data-src="../assets/images/istockphoto-1480739751-1024x1024.png"
+              data-label="Фото"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/istockphoto-1480739751-1024x1024.png"
+                alt="Фото"
+              />
+              <span>Фото</span>
+            </button>
+            <button
+              class="block-item"
+              data-block="brick"
+              data-src="../assets/images/maxresdefault%20(2)%20(1).png"
+              data-label="Кирпич"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/maxresdefault%20(2)%20(1).png"
+                alt="Кирпич"
+              />
+              <span>Кирпич</span>
+            </button>
+            <button
+              class="block-item"
+              data-block="tnt"
+              data-src="../assets/images/minecrafttnt3dmodel02.png"
+              data-label="ТНТ"
+            >
+              <img
+                class="block-sample"
+                src="../assets/images/minecrafttnt3dmodel02.png"
+                alt="ТНТ"
+              />
+              <span>ТНТ</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <script src="indexBoard.js"></script>
+  </body>
+</html>
