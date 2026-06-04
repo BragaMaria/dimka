@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Калькулятор как в iPhone — выражение в строке числа</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none; /* Запрет выделения текста, как в нативном приложении */
+        }
+
+        body {
+            background: #000000; /* Глубокий чёрный фон как у iPhone */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: -apple-system, 'Helvetica Neue', 'SF Pro Text', 'SF Pro Display', system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 300;
+            padding: 16px;
+        }
+
+        /* Основной контейнер калькулятора */
+        .calculator {
+            width: 100%;
+            max-width: 380px;
+            background: #000000;
+            border-radius: 48px;
+            padding: 20px 12px 30px 12px;
+            box-shadow: 0px 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Экран (дисплей) — теперь единая область с числом и выражением внутри */
+        .display {
+            background: #000000;
+            padding: 40px 20px 30px 20px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        /* Строка результата (основное число) — всегда крупное */
+        .result {
+            font-size: 70px;
+            font-weight: 300;
+            color: #ffffff;
+
+            letter-spacing: -1px;
+            text-align: right;
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: thin;
+            transition: all 0.05s ease;
+        }
+
+        /* Строка выражения — расположена НАД результатом, но в той же зоне, как в iPhone */
+        /* Раньше выражение было отдельно, теперь оно тоже в поле числа, но меньшим шрифтом сверху */
+        .expression {
+            font-size: 32px;
+            color: #8e8e93; /* Светло-серый, как вторичный текст */
+            font-weight: 350;
+            letter-spacing: 0.5px;
+            text-align: right;
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            margin-bottom: 4px;
+            transition: all 0.05s ease;
+        }
+
+        /* Кастомизация скролла для длинных чисел/выражений */
+        .result::-webkit-scrollbar,
+        .expression::-webkit-scrollbar {
+            height: 3px;
+            background: #2c2c2e;
+        }
+        .result::-webkit-scrollbar-thumb,
+        .expression::-webkit-scrollbar-thumb {
+            background: #8e8e93;
+            border-radius: 10px;
+        }
+
+        /* Сетка кнопок (как в iOS — 4 колонки) */
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            padding: 8px 12px;
+        }
+
+        /* Общий стиль кнопки */
+        .btn {
+            aspect-ratio: 1 / 1;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            font-weight: 400;
+            font-family: inherit;
+            border: none;
+            cursor: pointer;
+            transition: 0.05s linear;
+            color: white;
+            background: #333333;
+            box-shadow: none;
+            outline: none;
+            touch-action: manipulation;
+        }
+
+        /* Кнопка нуля — шире (2 колонки) */
+        .btn-zero {
+            grid-column: span 2;
+            aspect-ratio: auto;
+            justify-content: flex-start;
+            padding-left: 32px;
+        }
+
+        /* Цветовые вариации */
+        .btn-gray {
+            background: #a5a5a5;
+            color: #000000;
+            font-weight: 450;
+        }
+
+        .btn-orange {
+            background: #f69906;
+            color: white;
+            font-size: 42px;
+            font-weight: 500;
+        }
+
+        .btn-dark {
+            background: #333333;
+            color: white;
+        }
+
+        /* Активное состояние (нажатие) */
+        .btn-gray:active {
+            background: #d4d4d2;
+        }
+        .btn-dark:active {
+            background: #5e5e5e;
+        }
+        .btn-orange:active {
+            background: #fdb54e;
+        }
+
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Адаптация под маленькие экраны */
+        @media (max-width: 400px) {
+            .calculator {
+                max-width: 100%;
+                padding: 12px 8px 20px 8px;
+            }
+            .btn {
+                font-size: 28px;
+            }
+            .btn-orange {
+                font-size: 36px;
+            }
+            .result {
+                font-size: 58px;
+            }
+            .expression {
+                font-size: 26px;
+            }
+            .buttons {
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 340px) {
+            .btn {
+                font-size: 24px;
+            }
+            .result {
+                font-size: 48px;
+            }
+            .expression {
+                font-size: 22px;
+            }
+            .buttons {
+                gap: 8px;
+            }
+            .btn-zero {
+                padding-left: 24px;
+            }
+        }
+
+        /* Панель истории */
+        .history-panel {
+            background: #1c1c1e;
+            border-radius: 28px;
+            margin: 0 8px 16px 8px;
+            max-height: 0;
+            overflow-y: auto;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            scrollbar-width: thin;
+        }
+
+        .history-panel.open {
+            max-height: 280px;
+            padding: 16px 12px;
+        }
+
+        .history-panel::-webkit-scrollbar {
+            width: 4px;
+        }
+        .history-panel::-webkit-scrollbar-track {
+            background: #2c2c2e;
+            border-radius: 10px;
+        }
+        .history-panel::-webkit-scrollbar-thumb {
+            background: #5e5e5e;
+            border-radius: 10px;
+        }
+
+        .history-title {
+            color: #8e8e93;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .history-clear {
+            background: #2c2c2e;
+            border: none;
+            color: #ff453a;
+            font-size: 13px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.1s;
+        }
+        .history-clear:active {
+            opacity: 0.7;
+            transform: scale(0.96);
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .history-item {
+            background: #2c2c2e;
+            border-radius: 16px;
+            padding: 10px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .history-expr {
+            color: #8e8e93;
+            font-size: 15px;
+            word-break: break-word;
+            flex: 1;
+        }
+
+        .history-result {
+            color: #f69906;
+            font-weight: 500;
+            font-size: 18px;
+            font-family: monospace;
+        }
+
+        .btn_back_history{
+            display: flex;
+            width: 900px;
+            justify-content: space-between;
+           
+        }
+
+        #backButton{
+            padding: 7px;
+        }
+
+
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+<div class="btn_back_history">
+    <button class="btn btn-gray" id="backButton">Назад</button>
+    <button class="btn btn-gray btn-history-toggle" data-action="toggleHistory">📋</button>
+</div>
+
+<div class="calculator">
+    <div class="history-panel" id="historyPanel">
+        <div class="history-title">
+            <span>📋 История</span>
+            <button class="history-clear" id="clearHistoryBtn">Очистить</button>
+        </div>
+        <div class="history-list" id="historyList">
+            <div style="color:#8e8e93; text-align:center; padding:12px;">Нет записей</div>
+        </div>
+    </div>
+    <div class="display">
+        <!-- Строка выражения (маленький серый текст) всегда сверху, как в iPhone 14/15/16 -->
+        <div class="expression" id="expression"></div>
+        <!-- Основной дисплей с числом -->
+        <div class="result" id="result">0</div>
+    </div>
+    <div class="buttons">
+        <!-- Ряд 1: AC, +/-, %, ÷ -->
+        <button class="btn btn-gray" data-action="clear">AC</button>
+        <button class="btn btn-gray" data-action="sign">+/−</button>
+        <button class="btn btn-gray" data-action="percent">%</button>
+        <button class="btn btn-orange" data-op="/">÷</button>
+
+        <!-- Ряд 2: 7, 8, 9, × -->
+        <button class="btn btn-dark" data-num="7">7</button>
+        <button class="btn btn-dark" data-num="8">8</button>
+        <button class="btn btn-dark" data-num="9">9</button>
+        <button class="btn btn-orange" data-op="*">×</button>
+
+        <!-- Ряд 3: 4, 5, 6, - -->
+        <button class="btn btn-dark" data-num="4">4</button>
+        <button class="btn btn-dark" data-num="5">5</button>
+        <button class="btn btn-dark" data-num="6">6</button>
+        <button class="btn btn-orange" data-op="-">−</button>
+
+        <!-- Ряд 4: 1, 2, 3, + -->
+        <button class="btn btn-dark" data-num="1">1</button>
+        <button class="btn btn-dark" data-num="2">2</button>
+        <button class="btn btn-dark" data-num="3">3</button>
+        <button class="btn btn-orange" data-op="+">+</button>
+
+        <!-- Ряд 5: 0 (широкая), ., = -->
+        <button class="btn btn-dark btn-zero" data-num="0">0</button>
+        <button class="btn btn-dark" data-num=".">,</button>
+        <button class="btn btn-orange" data-action="equals">=</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById("backButton").addEventListener("click", function() {
+    window.history.go(-1);
+});
+ // ---------- Калькулятор iPhone + История и Backspace ----------
+    let currentInput = "0";
+    let previousInput = null;
+    let operation = null;
+    let shouldResetScreen = false;
+    let lastButtonWasEqual = false;
+    let waitingForOperand = false;
+    
+    // Массив истории: каждый объект { expression: "5 + 3", result: "8" }
+    let history = [];
+    
+    // DOM элементы
+    const expressionEl = document.getElementById('expression');
+    const resultEl = document.getElementById('result');
+    const historyPanel = document.getElementById('historyPanel');
+    const historyListDiv = document.getElementById('historyList');
+    const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+    
+    // Функция обновления отображения истории
+    function renderHistory() {
+        if (history.length === 0) {
+            historyListDiv.innerHTML = '<div style="color:#8e8e93; text-align:center; padding:12px;">Нет записей</div>';
+            return;
+        }
+        historyListDiv.innerHTML = history.map(item => `
+            <div class="history-item">
+                <span class="history-expr">${escapeHtml(item.expression)} =</span>
+                <span class="history-result">${escapeHtml(item.result)}</span>
+            </div>
+        `).join('');
+    }
+    
+    // Функция добавления в историю
+    function addToHistory(expr, res) {
+        if (!expr || res === undefined) return;
+        // Не добавляем дубликаты подряд (если последняя запись такая же)
+        if (history.length > 0 && history[history.length-1].expression === expr && history[history.length-1].result === res) {
+            return;
+        }
+        history.unshift({ expression: expr, result: res }); // новые сверху
+        // Ограничим историю 20 записями
+        if (history.length > 20) history.pop();
+        renderHistory();
+    }
+    
+    function clearHistory() {
+        history = [];
+        renderHistory();
+    }
+    
+    function toggleHistoryPanel() {
+        historyPanel.classList.toggle('open');
+    }
+    
+    // Простая защита от XSS
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+    
+    // Обновление дисплея
+    function updateDisplay() {
+        let displayValue = currentInput;
+        if (displayValue === "") displayValue = "0";
+        resultEl.innerText = displayValue;
+        
+        if (operation !== null && previousInput !== null && !lastButtonWasEqual) {
+            let opSymbol = getSymbolForOperation(operation);
+            let formattedPrev = formatNumberForExpr(previousInput);
+            expressionEl.innerText = `${formattedPrev} ${opSymbol}`;
+        }
+        else if (lastButtonWasEqual && previousInput !== null && operation === null) {
+            expressionEl.innerText = "";
+        }
+        else if (waitingForOperand && operation !== null && previousInput !== null) {
+            let opSymbol = getSymbolForOperation(operation);
+            let formattedPrev = formatNumberForExpr(previousInput);
+            expressionEl.innerText = `${formattedPrev} ${opSymbol}`;
+        }
+        else {
+            if (previousInput === null || operation === null) {
+                expressionEl.innerText = "";
+            }
+        }
+        
+        if (currentInput === "Ошибка") {
+            expressionEl.innerText = "";
+        }
+        
+        resultEl.scrollLeft = resultEl.scrollWidth;
+        expressionEl.scrollLeft = expressionEl.scrollWidth;
+    }
+    
+    function formatNumberForExpr(num) {
+        if (num === null || num === undefined) return "";
+        let str = num.toString();
+        if (str.length > 14) {
+            return parseFloat(num).toExponential(8);
+        }
+        return str;
+    }
+    
+    function getSymbolForOperation(op) {
+        if (op === '+') return '+';
+        if (op === '-') return '−';
+        if (op === '*') return '×';
+        if (op === '/') return '÷';
+        return '';
+    }
+    
+    // Добавление записи в историю после вычисления
+    function recordToHistory(exprStr, resultValue) {
+        if (exprStr && resultValue !== undefined && resultValue !== null && resultValue !== "Ошибка") {
+            addToHistory(exprStr, resultValue);
+        }
+    }
+    
+    // Backspace (кнопка назад)
+    function backspace() {
+        if (currentInput === "Ошибка") {
+            clearAll();
+            return;
+        }
+        if (shouldResetScreen || waitingForOperand) {
+            return;
+        }
+        if (lastButtonWasEqual) {
+            clearAll();
+            return;
+        }
+        if (currentInput.length > 1) {
+            currentInput = currentInput.slice(0, -1);
+        } else {
+            currentInput = "0";
+        }
+        updateDisplay();
+    }
+    
+    // Ввод чисел и точки
+    function inputNumber(number) {
+        if (currentInput === "Ошибка") {
+            clearAll();
+        }
+        if (lastButtonWasEqual) {
+            clearAll();
+            lastButtonWasEqual = false;
+        }
+        if (shouldResetScreen) {
+            currentInput = "";
+            shouldResetScreen = false;
+            waitingForOperand = false;
+        }
+        if (currentInput.length >= 18) return;
+        
+        if (number === '.') {
+            if (currentInput.includes('.')) return;
+            if (currentInput === "" || currentInput === "0") {
+                currentInput = "0.";
+                updateDisplay();
+                return;
+            }
+            currentInput += ".";
+            updateDisplay();
+            return;
+        }
+        
+        if (currentInput === "0" && !shouldResetScreen) {
+            currentInput = number;
+        } else {
+            currentInput += number;
+        }
+        updateDisplay();
+    }
+    
+    // Установка операции
+    function setOperation(op) {
+        if (currentInput === "Ошибка") {
+            clearAll();
+            return;
+        }
+        if (lastButtonWasEqual) {
+            lastButtonWasEqual = false;
+            previousInput = parseFloat(currentInput);
+            operation = op;
+            waitingForOperand = true;
+            shouldResetScreen = true;
+            updateDisplay();
+            return;
+        }
+        if (operation !== null && !waitingForOperand && !shouldResetScreen) {
+            compute();
+            previousInput = parseFloat(currentInput);
+            operation = op;
+            waitingForOperand = true;
+            shouldResetScreen = true;
+            updateDisplay();
+            return;
+        }
+        if (previousInput === null && !waitingForOperand) {
+            previousInput = parseFloat(currentInput);
+            operation = op;
+            waitingForOperand = true;
+            shouldResetScreen = true;
+            updateDisplay();
+            return;
+        }
+        if (waitingForOperand) {
+            operation = op;
+            updateDisplay();
+            return;
+        }
+        previousInput = parseFloat(currentInput);
+        operation = op;
+        waitingForOperand = true;
+        shouldResetScreen = true;
+        updateDisplay();
+    }
+    
+    // Вычисление с сохранением в историю
+    function compute() {
+        if (operation === null || previousInput === null || waitingForOperand) {
+            return;
+        }
+        let secondOperand = parseFloat(currentInput);
+        let result;
+        const exprString = `${formatNumberForExpr(previousInput)} ${getSymbolForOperation(operation)} ${formatNumberForExpr(secondOperand)}`;
+        
+        switch (operation) {
+            case '+': result = previousInput + secondOperand; break;
+            case '-': result = previousInput - secondOperand; break;
+            case '*': result = previousInput * secondOperand; break;
+            case '/':
+                if (secondOperand === 0) result = "Ошибка";
+                else result = previousInput / secondOperand;
+                break;
+            default: return;
+        }
+        
+        if (result === "Ошибка") {
+            currentInput = "Ошибка";
+            previousInput = null;
+            operation = null;
+            waitingForOperand = false;
+            shouldResetScreen = false;
+            lastButtonWasEqual = false;
+            updateDisplay();
+            return;
+        }
+        
+        let computedValue = result;
+        if (typeof computedValue === 'number') {
+            computedValue = parseFloat(computedValue.toFixed(10));
+            if (!isFinite(computedValue)) {
+                currentInput = "Ошибка";
+                previousInput = null;
+                operation = null;
+                updateDisplay();
+                return;
+            }
+            if (Number.isInteger(computedValue)) {
+                computedValue = computedValue;
+            } else {
+                computedValue = parseFloat(computedValue.toFixed(9));
+            }
+        }
+        
+        const resultStr = computedValue.toString();
+        // Сохраняем в историю
+        recordToHistory(exprString, resultStr);
+        
+        currentInput = String(computedValue);
+        previousInput = computedValue;
+        operation = null;
+        waitingForOperand = false;
+        shouldResetScreen = true;
+        lastButtonWasEqual = false;
+        updateDisplay();
+    }
+    
+    function equals() {
+        if (currentInput === "Ошибка") {
+            clearAll();
+            return;
+        }
+        if (operation === null || previousInput === null || waitingForOperand) {
+            if (previousInput !== null && operation === null) {
+                lastButtonWasEqual = true;
+                shouldResetScreen = true;
+                updateDisplay();
+            }
+            return;
+        }
+        compute();
+        lastButtonWasEqual = true;
+        shouldResetScreen = true;
+        operation = null;
+        waitingForOperand = false;
+        expressionEl.innerText = "";
+        updateDisplay();
+    }
+    
+    function clearAll() {
+        currentInput = "0";
+        previousInput = null;
+        operation = null;
+        shouldResetScreen = false;
+        waitingForOperand = false;
+        lastButtonWasEqual = false;
+        expressionEl.innerText = "";
+        updateDisplay();
+    }
+    
+    function toggleSign() {
+        if (currentInput === "Ошибка") {
+            clearAll();
+            return;
+        }
+        let num = parseFloat(currentInput);
+        if (isNaN(num)) return;
+        num = -num;
+        currentInput = num.toString();
+        updateDisplay();
+    }
+    
+    function percent() {
+        if (currentInput === "Ошибка") {
+            clearAll();
+            return;
+        }
+        let val = parseFloat(currentInput);
+        if (isNaN(val)) return;
+        
+        if (previousInput !== null && operation !== null && !waitingForOperand && !lastButtonWasEqual) {
+            let percentOfPrevious = previousInput * (val / 100);
+            currentInput = percentOfPrevious.toString();
+            updateDisplay();
+            return;
+        } else {
+            let percentValue = val / 100;
+            currentInput = percentValue.toString();
+            updateDisplay();
+        }
+    }
+    
+    // Обработчик кнопок
+    function handleButtonClick(e) {
+        const btn = e.currentTarget;
+        if (btn.hasAttribute('data-num')) {
+            inputNumber(btn.getAttribute('data-num'));
+        }
+        else if (btn.hasAttribute('data-op')) {
+            setOperation(btn.getAttribute('data-op'));
+        }
+        else if (btn.hasAttribute('data-action')) {
+            const action = btn.getAttribute('data-action');
+            if (action === 'clear') clearAll();
+            else if (action === 'sign') toggleSign();
+            else if (action === 'percent') percent();
+            else if (action === 'equals') equals();
+            else if (action === 'backspace') backspace();
+            else if (action === 'toggleHistory') toggleHistoryPanel();
+        }
+    }
+    
+    // Назначение обработчиков
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', handleButtonClick);
+        btn.addEventListener('touchstart', (e) => {});
+    });
+    
+    clearHistoryBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        clearHistory();
+    });
+    
+    // Клавиатура
+    window.addEventListener('keydown', (e) => {
+        const key = e.key;
+        if (/^[0-9]$/.test(key)) {
+            e.preventDefault();
+            inputNumber(key);
+        } else if (key === '.') {
+            e.preventDefault();
+            inputNumber('.');
+        } else if (key === '+' || key === '-') {
+            e.preventDefault();
+            setOperation(key);
+        } else if (key === '*') {
+            e.preventDefault();
+            setOperation('*');
+        } else if (key === '/') {
+            e.preventDefault();
+            setOperation('/');
+        } else if (key === 'Enter' || key === '=') {
+            e.preventDefault();
+            equals();
+        } else if (key === 'Escape') {
+            clearAll();
+        } else if (key === '%') {
+            e.preventDefault();
+            percent();
+        } else if (key === 'Backspace') {
+            e.preventDefault();
+            backspace();
+        }
+    });
+    
+    clearAll();
+    renderHistory();
+
+    
+</script>
+</body>
+</html>
