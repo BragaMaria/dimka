@@ -18,7 +18,7 @@ body{
       height: 497px;
       background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
       border-radius: 56px;
-      border: 12px solid #000;
+      border: 12px solid #4caf50;
       box-shadow: 0 0 60px rgba(0,0,0,0.9);
       overflow: hidden;
       position: absolute;
@@ -45,8 +45,8 @@ body{
     /* заголовок приложения */
     .header {
       height: 54px;
-      background: #00c853; /* ярко-зелёный как на скриншотах */
-      color: black;
+     background-image: url('../assets/images/5e68c8b5-ea07-4722-80e8-7c2614386872.png');
+      color: rgb(255, 255, 255);
       font-size: 19px;
       font-weight: 600;
       display: flex;
@@ -58,7 +58,7 @@ body{
     /* иконки */
     .icons {
       flex: 1;
-      background: linear-gradient(to bottom, #0044ff, #001f99);
+      background-image: url('../assets/images/5e68c8b5-ea07-4722-80e8-7c2614386872.png');
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 20px;
