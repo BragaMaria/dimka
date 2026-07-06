@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Afacad&family=Poppins:wght@300;400;500;600;700&display=swap");
+    </style>
+  </head>
+  <body>
+    <div class="buttons">
+      <div class="buttons_wrapper">
+        <button class="weather_block">Погода</button>
+        <button class="time_block">Время</button>
+      </div>
+    </div>
+
+    <!-- Блок для времени -->
+    <div class="wrapper time1">
+      <div class="search">
+        <input
+          type="text"
+          class="search__input"
+          placeholder="Введите город для времени..."
+        />
+        <button class="search__button">
+          <img src="./icons8-поиск.svg" alt="search" />
+        </button>
+      </div>
+      <div class="search__display"></div>
+    </div>
+
+    <!-- Блок для погоды -->
+    <div class="wrapper weather1 hidden">
+      <div class="search">
+        <input
+          type="text"
+          class="search__input"
+          placeholder="Введите город для погоды..."
+        />
+        <button class="search__button">
+          <img src="./icons8-поиск.svg" alt="search" />
+        </button>
+      </div>
+      <div class="search__display"></div>
+    </div>
+
+    <script src="./run.js"></script>
+  </body>
+</html>

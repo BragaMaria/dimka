@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href='./settings.css'>
+</head>
+<body>
+
+    
+
+    <div class="phone">
+
+  <div class="status-bar">
+    <div class="left">
+      <span>…l</span>
+      <span>☀</span>
+      <span>Вс</span>
+    </div>
+    <div class="center icon2">
+      <img  src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt="">
+      <span>iFruit</span>
+    </div>
+    <div class="right">
+      <span id="time">13:00</span>
+      <span>□</span>
+    </div>
+  </div>
+
+  <div class="header" id="header">Список дел</div>
+
+  <div class="icons">
+
+    <div class="icon mash" data-title="МЭШ">
+      <div style="position:relative">
+        <img src="../assets/images/МЭШ.png" alt="mail">
+        <div class="badge">4</div>
+      </div>
+      
+    </div>
+
+    <div class="icon vk_video" data-title="VK Video">
+      <img src="../assets/images/c2e5a878-53b6-4045-99e1-6d26818c7352.png" alt="chat">
+      
+    </div>
+
+    <div class="icon max" data-title="Мессенджер">
+      <img src="../assets/images/e9c55b83-c41d-4ac4-88e6-02a48c6adaba.png" alt="message">
+      
+    </div>
+
+    <div class="icon calendar" data-title="Погода">
+      <img src="../assets/images/generated-image.png" alt="hh.ru">
+      
+    </div>
+
+    <div class="icon app-store" data-title="App Store">
+      <img src="../assets/images/65fbccf65517c7ff2d292d8c784ed8dc.jpg" alt="club">
+      
+    </div>
+
+    <div class="icon calc" data-title="Калькулятор">
+      <img src="../assets/images/644a545fd6b5cf6548afafd19678bc63.jpg" alt="todo">
+      
+    </div>
+
+    <div class="icon settings" data-title="Настройки">
+      <img src="../assets/images/02000d7051a0f4b3f417567672a1923f.jpg" alt="settings">
+     
+    </div>
+
+    <div class="icon minecraft" data-title="Minecraft">
+      <img src="../assets/images/mine.jpg" alt="Minecraft">
+      
+    </div>
+
+    <div class="icon internet" data-title="Интернет">
+      <img src="../assets/images/c7164c9335d99550d46482e691f1dab5.jpg" alt="game">
+      
+    </div>
+
+  </div>
+
+  <div class="dock">
+    <div class="btn icon3"><img src="../assets/images/photo_2026-02-28_15-51-04.jpg" alt=""></div>
+    <div class="btn icon3"><img  src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt=""></div>
+    <div class="btn">←</div>
+  </div>
+
+</div>
+
+    <script>
+        const REAL_SECONDS_PER_GAME_MINUTE = 2;     // 2 секунды реального времени = 1 игровая минута
+const GAME_MINUTES_PER_DAY = 1440;           // 24 часа × 60 минут
+const REAL_MS_PER_GAME_DAY = GAME_MINUTES_PER_DAY * REAL_SECONDS_PER_GAME_MINUTE * 1000; // ≈ 48 минут
+
+// Начальное время (можно поменять)
+let gameHour = 13;
+let gameMinute = 7;
+
+// Массив дней недели (начинаем с воскресенья, как часто в примерах GTA)
+const daysOfWeek = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
+let currentDayIndex = 6; // 0 = Вс
+
+const timeElement = document.getElementById("time");
+const dayElement = document.querySelector(".status-bar .left span:nth-child(3)"); // элемент с днём недели
+
+// Функция форматирования времени (08:05 → 8:05, 13:40 → 13:40)
+function formatGameTime() {
+  const h = String(gameHour).padStart(2, "0");
+  const m = String(gameMinute).padStart(2, "0");
+  return `${h}:${m}`;
+}
+
+// Обновление отображения
+function renderTimeAndDay() {
+  timeElement.textContent = formatGameTime();
+  dayElement.textContent = daysOfWeek[currentDayIndex];
+}
+
+// Основной тик времени
+function advanceGameTime() {
+  gameMinute++;
+
+  if (gameMinute >= 60) {
+    gameMinute = 0;
+    gameHour++;
+
+    if (gameHour >= 24) {
+      gameHour = 0;
+      // Смена дня недели
+      currentDayIndex = (currentDayIndex + 1) % 7;
+      renderTimeAndDay(); // день сменился → сразу обновляем и день
+    }
+  }
+
+  renderTimeAndDay();
+}
+
+// Запускаем игру времени
+setInterval(advanceGameTime, REAL_SECONDS_PER_GAME_MINUTE * 1000);
+
+// Первое отображение (чтобы не ждать первую итерацию)
+renderTimeAndDay();
+    </script>
+</body>
+</html>

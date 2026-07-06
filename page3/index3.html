@@ -33,9 +33,9 @@
 
   <div class="icons">
 
-    <div class="icon" data-title="Почта России">
+    <div class="icon mash" data-title="МЭШ">
       <div style="position:relative">
-        <img src="../assets/images/9d4255767f2ef7b74f509fdadd522a38.jpg" alt="mail">
+        <img src="../assets/images/МЭШ.png" alt="mail">
         <div class="badge">4</div>
       </div>
       
@@ -51,8 +51,8 @@
       
     </div>
 
-    <div class="icon" data-title="hh.ru">
-      <img src="../assets/images/10c1d9dde4ffe466cd134eb925399ae8.jpg" alt="hh.ru">
+    <div class="icon calendar" data-title="Погода">
+      <img src="../assets/images/generated-image.png" alt="hh.ru">
       
     </div>
 
@@ -66,8 +66,8 @@
       
     </div>
 
-    <div class="icon" data-title="Настройки">
-      <img src="../assets/images/02000d7051a0f4b3f417567672a1923f.jpg" alt="cmc">
+    <div class="icon settings" data-title="Настройки">
+      <img src="../assets/images/02000d7051a0f4b3f417567672a1923f.jpg" alt="settings">
      
     </div>
 
@@ -112,30 +112,104 @@
       document.getElementById("header").textContent = title;
     });
   });
-
-  document.querySelector('.internet').addEventListener('click',()=>{
-    window.location.href = '../pageInternet/index.html'
-  })
-
+document.querySelector('.internet').addEventListener('click', ()=>{
+    const audio = new Audio('./cave21.mp3');
+    audio.volume = 1.0;
+    
+    audio.play().catch(e => console.log('Audio error:', e));
+    
+    // Задержка 3 секунды перед переходом
+    setTimeout(() => {
+        window.location.href = '../pageInternet/index.html';
+    }, 3000);
+});
   document.querySelector('.minecraft').addEventListener('click',()=>{
+     const audio = new Audio('./cave21.mp3');
+    audio.volume = 1.0;
+    
+    audio.play().catch(e => console.log('Audio error:', e));
+    setTimeout(() => {
     window.location.href = '../pageMinecraft/indexMine.html'
+    }, 3000);
   })
 
   document.querySelector('.max').addEventListener('click',()=>{
+    const audio = new Audio('./cave21.mp3');
+    audio.volume = 1.0;
+    
+    audio.play().catch(e => console.log('Audio error:', e));
+    setTimeout(() => {
     window.location.href = 'https://web.max.ru/'
+    }, 3000);
+    
   })
 
   document.querySelector('.vk_video').addEventListener('click',()=>{
+    const audio = new Audio('./cave21.mp3');
+    audio.volume = 1.0;
+    
+    audio.play().catch(e => console.log('Audio error:', e));
+    setTimeout(() => {
     window.location.href = 'https://vkvideo.ru/'
+    }, 3000);
+    
   })
 
   document.querySelector('.calc').addEventListener('click',()=>{
+    const audio = new Audio('./cave21.mp3');
+    audio.volume = 1.0;
+    
+    audio.play().catch(e => console.log('Audio error:', e));
+    setTimeout(() => {
     window.location.href = '../pageCalculator/index.html'
+    }, 3000);
+    
   })
 
   document.querySelector('.app-store').addEventListener('click',()=>{
+    const audio = new Audio('./cave21.mp3');
+    audio.volume = 1.0;
+    
+    audio.play().catch(e => console.log('Audio error:', e));
+    setTimeout(() => {
     window.location.href = 'https://apps.apple.com/us/iphone/apps'
+    }, 3000);
+    
   })
+
+  document.querySelector('.calendar').addEventListener('click',()=>{
+    const audio = new Audio('./cave21.mp3');
+    audio.volume = 1.0;
+    
+    audio.play().catch(e => console.log('Audio error:', e));
+    setTimeout(() => {
+    window.location.href = '../pageCalendar/index.html'
+    }, 3000);
+    
+  })
+  document.querySelector('.mash').addEventListener('click',()=>{
+    const audio = new Audio('./cave21.mp3');
+    audio.volume = 1.0;
+    
+    audio.play().catch(e => console.log('Audio error:', e));
+    setTimeout(() => {
+     window.location.href = 'https://school.mos.ru/?backUrl=https://school.mos.ru/diary/'
+    }, 3000);
+   
+  })
+
+  document.querySelector('.settings').addEventListener('click',()=>{
+    const audio = new Audio('./cave21.mp3');
+    audio.volume = 1.0;
+    
+    audio.play().catch(e => console.log('Audio error:', e));
+    setTimeout(() => {
+     window.location.href = '../pageSettings/index.html'
+    }, 3000);
+   
+  })
+  
+  
   
   
 
