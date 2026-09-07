@@ -11,6 +11,152 @@ body{
       position: relative;
 }
 
+.plus{
+  border: 5px dashed  #b66cff !important;
+  cursor: pointer;
+  
+}
+
+.custom-color {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.custom-color span {
+    font-size: 60px;
+    line-height: 50px;
+    color: #8b3dff;
+}
+
+.custom-color strong {
+    margin-top: 10px;
+    color: #8b3dff;
+    font-size: 18px;
+}
+
+.custom-color-item {
+    position: relative;
+}
+
+#customColorPicker {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+}
+
+.plus img{
+  width: 100px !important;
+  height: 100px !important;
+  margin: 0 auto;
+}
+
+.text_plus{
+  color: #296ae0;
+  font-weight: bold;
+}
+
+.card{
+    width:1075px;
+  
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:22px;
+}
+
+.title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#fff;
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:22px;
+}
+
+.title svg{
+    width:22px;
+    height:22px;
+    fill:#b66cff;
+}
+
+.items{
+    display:flex;
+    gap:28px;
+    flex-wrap: wrap;
+}
+
+.item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.preview{
+    width:150px;
+    height:150px;
+    border-radius:18px;
+    overflow:hidden;
+    border:3px solid transparent;
+    transition:.25s;
+}
+
+.preview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.item.active .preview{
+    border-color:#9b4dff;
+    box-shadow:0 0 15px rgba(155,77,255,.55);
+}
+
+.radio{
+    margin-top:18px;
+}
+
+.radio input{
+    display:none;
+}
+
+.radio label{
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    border:3px solid #70738a;
+    display:block;
+    cursor:pointer;
+    position:relative;
+}
+
+.radio input:checked + label{
+    border-color:#a855f7;
+}
+
+.radio input:checked + label::after{
+    content:"";
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:#a855f7;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.block_blur{
+  width: 1133px;
+  height: 100%;
+  background-color: rgba(255,255,255,0.3);
+}
+
 
 
     .phone {
@@ -167,3 +313,36 @@ body{
         left: 20px;
         bottom: 0;
     }
+
+  
+.block_blur {
+    max-height: 1050px; /* или любая другая высота */
+    overflow-y: auto;  /* вертикальная прокрутка */
+    overflow-x: hidden; /* скрыть горизонтальную прокрутку */
+    padding-right: 10px; /* отступ для ползунка */
+}
+
+/* Стилизация ползунка (опционально) */
+.block_blur::-webkit-scrollbar {
+    width: 8px;
+}
+
+.block_blur::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.block_blur::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.block_blur::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Для Firefox */
+.block_blur {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+}

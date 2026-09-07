@@ -5,9 +5,611 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings</title>
     <link rel="stylesheet" href='./settings.css'>
+    <style>
+        
+.buttons{
+    margin-top: 20px;
+    font-family: 'Minecraft Rus';
+    margin-left: 730px;
+}
+.blob-btn {
+  z-index: 1;
+  position: relative;
+  padding: 20px 46px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #0505A9;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  transition: color 0.5s;
+  cursor: pointer;
+  border-radius: 30px;
+}
+.blob-btn:before {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #0505A9;
+  border-radius: 30px;
+}
+.blob-btn:after {
+  content: "";
+  z-index: -2;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s 0.2s;
+  border-radius: 30px;
+}
+.blob-btn:hover {
+  color: #FFFFFF;
+  border-radius: 30px;
+}
+.blob-btn:hover:after {
+  transition: all 0.3s;
+  left: 0;
+  top: 0;
+  border-radius: 30px;
+}
+.blob-btn__inner {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background: #ffffff;
+}
+.blob-btn__blobs {
+  position: relative;
+  display: block;
+  height: 100%;
+  filter: url("#goo");
+}
+.blob-btn__blob {
+  position: absolute;
+  top: 2px;
+  width: 25%;
+  height: 100%;
+  background: #0505A9;
+  border-radius: 100%;
+  transform: translate3d(0, 150%, 0) scale(1.7);
+  transition: transform 0.45s;
+}
+@supports (filter: url("#goo")) {
+  .blob-btn__blob {
+    transform: translate3d(0, 150%, 0) scale(1.4);
+  }
+}
+.blob-btn__blob:nth-child(1) {
+  left: 0%;
+  transition-delay: 0s;
+}
+.blob-btn__blob:nth-child(2) {
+  left: 30%;
+  transition-delay: 0.08s;
+}
+.blob-btn__blob:nth-child(3) {
+  left: 60%;
+  transition-delay: 0.16s;
+}
+.blob-btn__blob:nth-child(4) {
+  left: 90%;
+  transition-delay: 0.24s;
+}
+.blob-btn:hover .blob-btn__blob {
+  transform: translateZ(0) scale(1.7);
+}
+@supports (filter: url("#goo")) {
+  .blob-btn:hover .blob-btn__blob {
+    transform: translateZ(0) scale(1.4);
+  }
+}
+    </style>
 </head>
 <body>
 
+  <div class="block_blur">
+<div class="card">
+
+    <div class="title">
+        <svg viewBox="0 0 24 24">
+            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"/>
+        </svg>
+        Стиль иконок
+    </div>
+
+    
+    <div class="items">
+
+        <div class="item active">
+            <div class="preview">
+                <img src="../assets/images/mine.jpg" alt="">
+            </div>
+
+            <div class="radio">
+                <input checked type="radio" name="style" id="mc">
+                <label for="mc"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview">
+                <img src="../assets/images/8371b4950c1d8bf7775bfda8401217fc.jpg" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="style" id="fortnite">
+                <label for="fortnite"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview">
+                <img src="../assets/images/poster.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="style" id="peak">
+                <label for="peak"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview">
+                <img src="../assets/images/rust_style3.webp" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="style" id="rust">
+                <label for="rust"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview">
+                <img src="../assets/images/EA_sports_fifa.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="style" id="fifa">
+                <label for="fifa"></label>
+            </div>
+        </div>
+        <div class="item active">
+            <div class="preview">
+                <img src="../assets/images/original_style.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="style" id="original">
+                <label for="original"></label>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="title">
+        <svg viewBox="0 0 24 24">
+            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"/>
+        </svg>
+        Фон
+    </div>
+
+    <div class="items">
+
+        <div class="item active">
+            <div class="preview">
+                <img src="../assets/images/5e68c8b5-ea07-4722-80e8-7c2614386872.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input checked type="radio" name="fon" id="fon1">
+                <label for="fon1"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview">
+                <img src="../assets/images/fortnite_fon.jpg" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="fon" id="fon2">
+                <label for="fon2"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview">
+                <img src="../assets/images/peak.jpg" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="fon" id="fon3">
+                <label for="fon3"></label>
+            </div>
+        </div>
+        <div class="item active">
+            <div class="preview">
+                <img src="../assets/images/rust_fon.jpg" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="fon" id="fon4">
+                <label for="fon4"></label>
+            </div>
+        </div>
+         <div class="item active">
+            <div class="preview">
+                <img src="../assets/images/fifa_fon.webp" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="fon" id="fon5">
+                <label for="fon5"></label>
+            </div>
+        </div>
+        <div class="item active">
+            <div class="preview plus">
+                <img src="../assets/images/abc8e7d7-b6c3-4af0-be9f-c168d3f27567 (1).png" alt="">
+                <span class="text_plus">Своя картинка</span>
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="fon" id="fon5">
+                <label for="fon5"></label>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="title">
+        <svg viewBox="0 0 24 24">
+            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"/>
+        </svg>
+        Цвет рамки телефона
+    </div>
+
+    <div class="items">
+
+        <!-- Белый -->
+        <div class="item">
+            <div class="preview">
+                <img src="../assets/images/klyaksa.jpg" alt="">
+            </div>
+
+            <div class="radio">
+                <input checked type="radio" name="color"  id="color1" class="white" data-color="#ffffff">
+                <label for="color1"></label>
+            </div>
+        </div>
+
+        <!-- Чёрный -->
+        <div class="item">
+            <div class="preview">
+                <img src="../assets/images/black_blob.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="color" id="color2" class="black" data-color="#000000">
+                <label for="color2"></label>
+            </div>
+        </div>
+
+        <!-- Голубой -->
+        <div class="item">
+            <div class="preview">
+                <img src="../assets/images/light-blue_BLOB.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="color" id="color3" class="#0ddaf2" data-color="#0ddaf2">
+                <label for="color3"></label>
+            </div>
+        </div>
+
+        <!-- Синий -->
+        <div class="item">
+            <div class="preview">
+                <img src="../assets/images/blue_BLOB.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="color" id="color4" class="blue" data-color="#006eff">
+                <label for="color4"></label>
+            </div>
+        </div>
+
+        <!-- Красный -->
+        <div class="item">
+            <div class="preview">
+                <img src="../assets/images/red_blob.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="color"  id="color5" class="red" data-color="#ff0000">
+                <label for="color5"></label>
+            </div>
+        </div>
+
+        <!-- Жёлтый -->
+        <div class="item">
+            <div class="preview">
+                <img src="../assets/images/yellow_blob.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="color" id="color6" class="yellow" data-color="#ffd000">
+                <label for="color6"></label>
+            </div>
+        </div>
+
+        <!-- Фиолетовый -->
+        <div class="item">
+            <div class="preview">
+                <img src="../assets/images/purple_blob.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="color"  id="color7" class="#9219e6" data-color="#9219e6">
+                <label for="color7"></label>
+            </div>
+        </div>
+
+        <!-- Салатовый -->
+        <div class="item">
+            <div class="preview">
+                <img src="../assets/images/salad_blob.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="color" id="color8" class="#66dc23" data-color="#66dc23">
+                <label for="color8"></label>
+            </div>
+        </div>
+
+        <!-- Розовый -->
+        <div class="item">
+            <div class="preview">
+                <img src="../assets/images/pink_blob.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="color" id="color9" class="#f94ad3" data-color="#f94ad3">
+                <label for="color9"></label>
+            </div>
+        </div>
+
+        <!-- Коричневый -->
+        <div class="item">
+            <div class="preview">
+                <img src="../assets/images/brown_blob.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="color" id="color10" class="#854f3f" data-color="#854f3f">
+                <label for="color10"></label>
+            </div>
+        </div>
+
+        <!-- Оранжевый -->
+        <div class="item">
+            <div class="preview">
+                <img src="../assets/images/blob_orange.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="color" id="color11" class="#f07100"  data-color="#f07100">
+                <label for="color11"></label>
+            </div>
+        </div>
+
+        <!-- СВОЙ ЦВЕТ -->
+        <div class="item custom-color-item">
+
+            <div class="preview custom-color">
+                <span>+</span>
+                <strong>Свой цвет</strong>
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="color" id="customColorRadio">
+                <label for="customColorRadio"></label>
+            </div>
+
+            <!-- Палитра -->
+            <input
+                type="color"
+                id="customColorPicker"
+                value="#16ace9"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="title">
+        <svg viewBox="0 0 24 24">
+            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"/>
+        </svg>
+        Звуки
+    </div>
+
+    <div class="items">
+        <audio id="sound1" src="../page3/cave21.mp3" preload="auto"></audio>
+        <audio id="sound2" src="../page3/challenge_complete_uHsY1YS.mp3" preload="auto"></audio>
+        <audio id="sound3" src="../page3/grakon.mp3" preload="auto"></audio>
+        <audio id="sound4" src="../page3/gta-v-death-sound-effect-102.mp3" preload="auto"></audio>
+        <audio id="sound5" src="../page3/melstroi-pam-pam-pam.mp3" preload="auto"></audio>
+        <audio id="sound6" src="../page3/minecraft-dirt-break-sound.mp3" preload="auto"></audio>
+        <audio id="sound7" src="../page3/ozhidanie.mp3" preload="auto"></audio>
+        <audio id="sound8" src="../page3/roblox-death-sound-effect.mp3" preload="auto"></audio>
+        <audio id="sound9" src="../page3/throwing-flashbang-sound-effect-cs-go.mp3" preload="auto"></audio>
+        <audio id="sound10" src="../page3/vot-eto-povorot.mp3" preload="auto"></audio>
+
+        <div class="item active">
+            <div class="preview" onclick="toggleSound('sound1')">
+                <img src="../assets/images/play.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input checked type="radio" name="voice" id="voice1">
+                <label for="voice1"></label>
+            </div>
+        </div>
+
+        
+
+        <div class="item active">
+            <div class="preview" onclick="toggleSound('sound2')">
+               <img src="../assets/images/play.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="voice" id="voice2">
+                <label for="voice2"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview" onclick="toggleSound('sound3')">
+                <img src="../assets/images/play.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="voice" id="voice3">
+                <label for="voice3"></label>
+            </div>
+        </div>
+        <div class="item active">
+            <div class="preview" onclick="toggleSound('sound4')">
+                <img src="../assets/images/play.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="voice" id="voice4">
+                <label for="voice4"></label>
+            </div>
+        </div>
+         <div class="item active">
+            <div class="preview" onclick="toggleSound('sound5')">
+                <img src="../assets/images/play.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="voice" id="voice5">
+                <label for="voice5"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview" onclick="toggleSound('sound6')">
+                <img src="../assets/images/play.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="voice" id="voice6">
+                <label for="voice6"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview" onclick="toggleSound('sound7')">
+                <img src="../assets/images/play.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="voice" id="voice7">
+                <label for="voice7"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview" onclick="toggleSound('sound8')">
+                <img src="../assets/images/play.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="voice" id="voice8">
+                <label for="voice8"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview" onclick="toggleSound('sound9')">
+                <img src="../assets/images/play.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="voice" id="voice9">
+                <label for="voice9"></label>
+            </div>
+        </div>
+
+        <div class="item active">
+            <div class="preview" onclick="toggleSound('sound10')">
+                <img src="../assets/images/play.png" alt="">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="voice" id="voice10">
+                <label for="voice10"></label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="buttons">
+  <button class="blob-btn" onclick="window.location.href='../page3/index3.html'">
+    Выйти
+    <span class="blob-btn__inner">
+      <span class="blob-btn__blobs">
+        <span class="blob-btn__blob"></span>
+        <span class="blob-btn__blob"></span>
+        <span class="blob-btn__blob"></span>
+        <span class="blob-btn__blob"></span>
+      </span>
+    </span>
+  </button>
+  <br/>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+      <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+    </filter>
+  </defs>
+</svg>
+
+</div>
+  </div>
     
 
     <div class="phone">
@@ -34,49 +636,55 @@
 
     <div class="icon mash" data-title="МЭШ">
       <div style="position:relative">
-        <img src="../assets/images/МЭШ.png" alt="mail">
+        <img src="../assets/images/мэш_оригинал.webp" alt="mail">
         <div class="badge">4</div>
       </div>
       
     </div>
 
     <div class="icon vk_video" data-title="VK Video">
-      <img src="../assets/images/c2e5a878-53b6-4045-99e1-6d26818c7352.png" alt="chat">
+      <img src="../assets/images/вк_оригинал.png" alt="chat">
       
     </div>
 
     <div class="icon max" data-title="Мессенджер">
-      <img src="../assets/images/e9c55b83-c41d-4ac4-88e6-02a48c6adaba.png" alt="message">
+      <img src="../assets/images/макс_оригинал.jpg" alt="message">
       
     </div>
 
     <div class="icon calendar" data-title="Погода">
-      <img src="../assets/images/generated-image.png" alt="hh.ru">
+      <img src="../assets/images/погода_оригинал.webp" alt="hh.ru">
       
     </div>
 
-    <div class="icon app-store" data-title="App Store">
-      <img src="../assets/images/65fbccf65517c7ff2d292d8c784ed8dc.jpg" alt="club">
-      
-    </div>
+    
 
     <div class="icon calc" data-title="Калькулятор">
-      <img src="../assets/images/644a545fd6b5cf6548afafd19678bc63.jpg" alt="todo">
+      <img id="calculator-img" src="../assets/images/калькулятор_оригинал.jpg" alt="todo">
+      
+    </div>
+
+    
+
+
+
+    <div class="icon app-store" data-title="App Store">
+      <img src="../assets/images/app_store_оригинал.webp" alt="club">
       
     </div>
 
     <div class="icon settings" data-title="Настройки">
-      <img src="../assets/images/02000d7051a0f4b3f417567672a1923f.jpg" alt="settings">
+      <img src="../assets/images/настройки_rust.png" alt="settings">
      
     </div>
 
     <div class="icon minecraft" data-title="Minecraft">
-      <img src="../assets/images/mine.jpg" alt="Minecraft">
+      <img src="../assets/images/rust_style3.webp" alt="Minecraft">
       
     </div>
 
     <div class="icon internet" data-title="Интернет">
-      <img src="../assets/images/c7164c9335d99550d46482e691f1dab5.jpg" alt="game">
+      <img src="../assets/images/google_rust.png" alt="game">
       
     </div>
 
@@ -90,7 +698,116 @@
 
 </div>
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const phone = document.querySelector(".phone");
+
+    // Все готовые цвета
+    const colorInputs = document.querySelectorAll(
+        'input[name="color"][data-color]'
+    );
+
+    colorInputs.forEach(input => {
+
+        input.addEventListener("change", function () {
+
+            const color = this.dataset.color;
+
+            // Меняем рамку телефона
+            phone.style.borderColor = color;
+
+            // Убираем active у всех
+            document.querySelectorAll(".item").forEach(item => {
+                item.classList.remove("active");
+            });
+
+            // Добавляем active выбранному
+            this.closest(".item").classList.add("active");
+        });
+
+    });
+
+
+    // Свой цвет
+    const customRadio = document.getElementById("customColorRadio");
+    const customPicker = document.getElementById("customColorPicker");
+    const customItem = customRadio.closest(".item");
+    const customPreview = customItem.querySelector(".custom-color");
+
+
+    // Нажали на "Свой цвет"
+    customPreview.addEventListener("click", function () {
+
+        customRadio.checked = true;
+
+        // Открываем палитру
+        customPicker.click();
+
+    });
+
+
+    // Пользователь выбрал цвет
+    customPicker.addEventListener("input", function () {
+
+        const color = this.value;
+
+        // Меняем рамку телефона
+        phone.style.borderColor = color;
+
+        // Выделяем "Свой цвет"
+        document.querySelectorAll(".item").forEach(item => {
+            item.classList.remove("active");
+        });
+
+        customItem.classList.add("active");
+
+    });
+
+});
+</script>
+
+<script>
+  setTimeout(() => {
+    document.getElementById('calculator-img').src =
+      '../assets/images/калькулятор_оригинал_2.jpg';
+  }, 3000);
+</script>
+
     <script>
+
+
+
+        const colors = ['white', 'black', '#0ddaf2', 'blue', 'red', 'yellow', '#9219e6', '#66dc23', '#f94ad3', '#854f3f','#f07100'];
+
+colors.forEach(color => {
+    const radio = document.querySelector(`input[name="color"][class="${color}"]`);
+    if (radio) {
+        radio.addEventListener('change', function() {
+            if (this.checked) {
+                document.querySelector('.phone').style.borderColor = color;
+            }
+        });
+    }
+});
+
+        function toggleSound(soundId) {
+    const audio = document.getElementById(soundId);
+    const img = document.getElementById('img-' + soundId);
+    
+    if (audio.paused) {
+        audio.play().catch(error => {
+            console.log('Ошибка воспроизведения:', error);
+        });
+        if (img) img.src = '../assets/images/play.png'; // меняем иконку на паузу
+    } else {
+        audio.pause();
+        if (img) img.src = '../assets/images/play.png'; // меняем иконку на play
+    }
+}
+
+
         const REAL_SECONDS_PER_GAME_MINUTE = 2;     // 2 секунды реального времени = 1 игровая минута
 const GAME_MINUTES_PER_DAY = 1440;           // 24 часа × 60 минут
 const REAL_MS_PER_GAME_DAY = GAME_MINUTES_PER_DAY * REAL_SECONDS_PER_GAME_MINUTE * 1000; // ≈ 48 минут
