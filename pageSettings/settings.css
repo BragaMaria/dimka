@@ -18,27 +18,33 @@ body{
 }
 
 .custom-color {
+    --custom-color: #296ae0;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+
+    border: 3px dashed var(--custom-color) !important;
+    box-shadow: 0 0 15px var(--custom-color) !important;
 }
 
 .custom-color span {
     font-size: 60px;
     line-height: 50px;
-    color: #8b3dff;
+    color: var(--custom-color);
 }
 
 .custom-color strong {
     margin-top: 10px;
-    color: #8b3dff;
+    color: var(--custom-color);
     font-size: 18px;
 }
 
 .custom-color-item {
     position: relative;
+    
 }
 
 #customColorPicker {
@@ -191,7 +197,7 @@ body{
     /* заголовок приложения */
     .header {
       height: 54px;
-     background-image: url('../assets/images/5e68c8b5-ea07-4722-80e8-7c2614386872.png');
+     
       color: rgb(255, 255, 255);
       font-size: 19px;
       font-weight: 600;
@@ -204,7 +210,7 @@ body{
     /* иконки */
     .icons {
       flex: 1;
-      background-image: url('../assets/images/5e68c8b5-ea07-4722-80e8-7c2614386872.png');
+      
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 20px;

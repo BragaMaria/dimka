@@ -1,0 +1,234 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0b0b0f;
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #24242c;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #ff3c3c;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff3c3c;
+        }
+
+        .hero {
+            padding: 75px 8% 55px;
+            background:
+                radial-gradient(ellipse at 80% 20%, #3a111b 0%, transparent 45%),
+                #0b0b0f;
+        }
+
+        .subtitle {
+            color: #ff4545;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: clamp(38px, 6vw, 76px);
+            line-height: 1.08;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        h1 span {
+            color: #ff3c3c;
+        }
+
+        .hero p {
+            max-width: 520px;
+            color: #a6a6b0;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .catalog {
+            padding: 25px 8% 80px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+
+        h2 {
+            font-size: 28px;
+        }
+
+        .count {
+            color: #888;
+            font-size: 13px;
+        }
+
+        .cars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .car {
+            background: #15151c;
+            border: 1px solid #292932;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.35s, border-color 0.35s;
+        }
+
+        .car:hover {
+            transform: translateY(-8px);
+            border-color: #ff3c3c;
+        }
+
+        .car img {
+            width: 100%;
+            height: 205px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .car:hover img {
+            transform: scale(1.05);
+        }
+
+        .car-image {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: #ff3c3c;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 7px 11px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        .car-info {
+            padding: 22px;
+        }
+
+        .car-info h3 {
+            font-size: 20px;
+            margin-bottom: 9px;
+        }
+
+        .car-info p {
+            color: #9999a5;
+            font-size: 13px;
+            line-height: 1.6;
+            min-height: 42px;
+        }
+
+        .car-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 17px;
+            border-top: 1px solid #303039;
+        }
+
+        .price {
+            color: #ff5555;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .details {
+            text-decoration: none;
+            color: white;
+            background: #292932;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .details:hover {
+            background: #ff3c3c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px 15px;
+            border-top: 1px solid #24242c;
+            color: #777;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px 6%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .hero {
+                padding: 55px 6% 40px;
+            }
+
+            .catalog {
+                padding: 25px 6% 55px;
+            }
+
+            .cars {
+                grid-template-columns: 1fr;
+            }
+        }

@@ -25,6 +25,9 @@ body{
       color: white;
       right: 100px;
       bottom: 0;
+      
+    
+
     }
 
     /* статус-бар */
@@ -45,7 +48,7 @@ body{
     /* заголовок приложения */
     .header {
       height: 54px;
-     background-image: url('../assets/images/5e68c8b5-ea07-4722-80e8-7c2614386872.png');
+     
       color: rgb(255, 255, 255);
       font-size: 19px;
       font-weight: 600;
@@ -53,17 +56,20 @@ body{
       align-items: center;
       justify-content: center;
       user-select: none;
+      
     }
 
     /* иконки */
     .icons {
       flex: 1;
-      background-image: url('../assets/images/5e68c8b5-ea07-4722-80e8-7c2614386872.png');
+      
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 20px;
       padding: 36px 24px 80px;
       overflow-y: auto;
+      background-size: cover;
+    
     }
 
     .icon {

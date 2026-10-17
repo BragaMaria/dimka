@@ -1,91 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/switch.css">
     <link rel="stylesheet" href="index3.css">
 
+    <style>
+      /* Фон телефона: одна общая картинка вместо отдельного фона у header/icons */
+      #phone {
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+        background-size: cover !important;
+      }
+
+      #phone .header,
+      #phone .icons {
+        background-image: none !important;
+      }
+    </style>
+
 </head>
 <body>
 
 
-<div class="phone">
+<div class="phone" id="phone">
 
   <div class="status-bar">
     <div class="left">
       <span>…l</span>
       <span>☀</span>
-      <span>Вс</span>
+      <span>Сб</span>
     </div>
     <div class="center icon2">
-      <img  src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt="">
+      <img src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt="">
       <span>iFruit</span>
     </div>
     <div class="right">
-      <span id="time">13:00</span>
+      <span id="time">13:12</span>
       <span>□</span>
     </div>
   </div>
 
-  <div class="header" id="header">Список дел</div>
+  <div class="header" id="header">Погода</div>
 
-  <div class="icons">
+  <div class="icons" id="icons">
 
-    <div class="icon mash" data-title="МЭШ">
+    <div class="icon mash" data-title="МЭШ" data-app="mash">
       <div style="position:relative">
-        <img src="../assets/images/МЭШ.png" alt="mail">
-        <div class="badge">4</div>
+        <img src="../assets/images/мэш_оригинал.webp" alt="mail">
+        
       </div>
       
     </div>
 
-    <div class="icon vk_video" data-title="VK Video">
-      <img src="../assets/images/c2e5a878-53b6-4045-99e1-6d26818c7352.png" alt="chat">
+    <div class="icon vk_video" data-title="VK Video" data-app="vk">
+      <img src="../assets/images/вк_оригинал.png" alt="chat">
       
     </div>
 
-    <div class="icon max" data-title="Мессенджер">
-      <img src="../assets/images/e9c55b83-c41d-4ac4-88e6-02a48c6adaba.png" alt="message">
+    <div class="icon max" data-title="Мессенджер" data-app="max">
+        <div style="position:relative">
+      <img src="../assets/images/макс_оригинал.jpg" alt="message">
+      <div class="badge">4</div>
+      </div>
       
     </div>
 
-    <div class="icon calendar" data-title="Погода">
-      <img src="../assets/images/generated-image.png" alt="hh.ru">
+    <div class="icon calendar" data-title="Погода" data-app="weather">
+      <img src="../assets/images/погода_оригинал.webp" alt="hh.ru">
       
     </div>
 
-    <div class="icon app-store" data-title="App Store">
-      <img src="../assets/images/65fbccf65517c7ff2d292d8c784ed8dc.jpg" alt="club">
+    
+
+    <div class="icon calc" data-title="Калькулятор" data-app="calculator">
+      <img id="calculator-img" src="../assets/images/калькулятор_оригинал.jpg" alt="todo">
       
     </div>
 
-    <div class="icon calc" data-title="Калькулятор">
-      <img src="../assets/images/644a545fd6b5cf6548afafd19678bc63.jpg" alt="todo">
-      
+    
+
+
+
+    <div class="icon app-store" data-title="App Store" data-app="appstore">
+      <img src="../assets/images/app_store_оригинал.webp" alt="club">
     </div>
 
-    <div class="icon settings" data-title="Настройки">
-      <img src="../assets/images/02000d7051a0f4b3f417567672a1923f.jpg" alt="settings">
+    <div class="icon settings" data-title="Настройки" data-app="settings">
+      <img src="../assets/images/настройки_оригинал.png" alt="settings">
      
     </div>
 
-    <div class="icon minecraft" data-title="Minecraft">
-      <img src="../assets/images/mine.jpg" alt="Minecraft">
+    <div class="icon minecraft" data-title="game" data-app="game">
+      <img src="../assets/images/mine.jpg" alt="game">
       
     </div>
 
-    <div class="icon internet" data-title="Интернет">
-      <img src="../assets/images/c7164c9335d99550d46482e691f1dab5.jpg" alt="game">
+    <div class="icon internet" data-title="Интернет" data-app="google">
+      <img src="../assets/images/google_оригинал.jpg" alt="game">
       
     </div>
 
   </div>
 
-  <div class="dock">
+  <div class="dock" id="dock">
     <div class="btn icon3"><img src="../assets/images/photo_2026-02-28_15-51-04.jpg" alt=""></div>
-    <div class="btn icon3"><img  src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt=""></div>
+    <div class="btn icon3"><img src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt=""></div>
     <div class="btn">←</div>
   </div>
 
@@ -101,9 +121,292 @@
         
     </div>
 
-    <script>
- 
+
+<script>
+
+const iconStyles = {
+
+    minecraft: {
+        mash: "../assets/images/МЭШ.png",
+        vk: "../assets/images/c2e5a878-53b6-4045-99e1-6d26818c7352.png",
+        max: "../assets/images/e9c55b83-c41d-4ac4-88e6-02a48c6adaba.png",
+        weather: "../assets/images/погода_mine.png",
+        calculator: "../assets/images/644a545fd6b5cf6548afafd19678bc63.jpg",
+        appstore: "../assets/images/65fbccf65517c7ff2d292d8c784ed8dc.jpg",
+        settings: "../assets/images/02000d7051a0f4b3f417567672a1923f.jpg",
+        game: "../assets/images/mine.jpg",
+        google: "../assets/images/c7164c9335d99550d46482e691f1dab5.jpg"
+    },
+
+    fortnite: {
+        mash: "../assets/images/МЭШ_fortnitte.png",
+        vk: "../assets/images/vk_video_fort.png",
+        max: "../assets/images/max_fort.png",
+        weather: "../assets/images/погода_fort.png",
+        calculator: "../assets/images/калькулятор_fort.png",
+        appstore: "../assets/images/app_store_fort.png",
+        settings: "../assets/images/настройки_fort.png",
+        game: "../assets/images/8371b4950c1d8bf7775bfda8401217fc.jpg",
+        google: "../assets/images/google_fort.png"
+    },
+
+    peak: {
+        mash: "../assets/images/mash_peak.png",
+        vk: "../assets/images/vk_video_peak.png",
+        max: "../assets/images/max_peak.png",
+        weather: "../assets/images/weather_peak.png",
+        calculator: "../assets/images/calculator_paek.png",
+        appstore: "../assets/images/app_store_peak.png",
+        settings: "../assets/images/settings_peak.png",
+        game: "../assets/images/rust_peak.png",
+        google: "../assets/images/google_peak.png"
+    },
+
+    rust: {
+        mash: "../assets/images/мэш_rust.png",
+        vk: "../assets/images/vk_rust.png",
+        max: "../assets/images/мах_rust.png",
+        weather: "../assets/images/погода_rust.png",
+        calculator: "../assets/images/калькулятор_rust.png",
+        appstore: "../assets/images/app_store_rust.png",
+        settings: "../assets/images/настройки_rust.png",
+        game: "../assets/images/rust_style3.webp",
+        google: "../assets/images/google_rust.png"
+    },
+
+    ea: {
+        mash: "../assets/images/мэш_fifa.png",
+        vk: "../assets/images/vk_fifa.png",
+        max: "../assets/images/мах_fifa.png",
+        weather: "../assets/images/погода_fifa.png",
+        calculator: "../assets/images/калькулятор_fifa.png",
+        appstore: "../assets/images/App_store_fifa.png",
+        settings: "../assets/images/настройки_fifa.png",
+        game: "../assets/images/EA_sports_fifa.png",
+        google: "../assets/images/google_fifa.png"
+    },
+
+    original: {
+        mash: "../assets/images/мэш_оригинал.webp",
+        vk: "../assets/images/вк_оригинал.png",
+        max: "../assets/images/макс_оригинал.jpg",
+        weather: "../assets/images/погода_оригинал.webp",
+        calculator: "../assets/images/калькулятор_оригинал.jpg",
+        appstore: "../assets/images/app_store_оригинал.webp",
+        settings: "../assets/images/настройки_оригинал.png",
+        game: "../assets/images/mine.jpg",
+        google: "../assets/images/google_оригинал.jpg"
+    }
+
+};
+
+
+// =====================================
+// ПРИМЕНИТЬ ИКОНКИ
+// =====================================
+
+function applyIconStyle(style) {
+
+    document.querySelectorAll("#icons .icon").forEach(icon => {
+
+        const appName = icon.dataset.app;
+        const img = icon.querySelector("img");
+
+        if (img && style[appName]) {
+            img.src = style[appName];
+        }
+
+    });
+
+}
+
+
+// =====================================
+// ПРИМЕНИТЬ ФОН
+// =====================================
+
+function applyBackground(background) {
+
+    const phone = document.getElementById("phone");
+
+    if (!phone || !background) return;
+
+    // Важно: фон задаём всему телефону.
+    // Если ставить его отдельно на header и icons,
+    // браузер масштабирует картинку два раза и она "ломается".
+    phone.style.backgroundImage = `url("${background}")`;
+    phone.style.backgroundSize = "cover";
+    phone.style.backgroundPosition = "center center";
+    phone.style.backgroundRepeat = "no-repeat";
+
+    // На всякий случай убираем старые inline-фоны.
+    const header = document.getElementById("header");
+    const icons = document.getElementById("icons");
+
+    if (header) header.style.backgroundImage = "none";
+    if (icons) icons.style.backgroundImage = "none";
+}
+
+
+// =====================================
+// ПРИМЕНИТЬ ЦВЕТ РАМКИ
+// =====================================
+
+function applyPhoneColor(color) {
+
+    const phone = document.getElementById("phone");
+
+    if (phone) {
+        phone.style.borderColor = color;
+    }
+
+}
+
+
+// =====================================
+// ЗАГРУЗИТЬ ВСЕ СОХРАНЁННЫЕ НАСТРОЙКИ
+// =====================================
+
+function loadPhoneSettings() {
+
+    // ---------------------------------
+    // ИКОНКИ
+    // ---------------------------------
+
+    const savedIconStyle =
+        localStorage.getItem("selectedIconStyle");
+
+    if (
+        savedIconStyle &&
+        iconStyles[savedIconStyle]
+    ) {
+
+        applyIconStyle(
+            iconStyles[savedIconStyle]
+        );
+
+    }
+
+
+    // ---------------------------------
+    // ФОН
+    // ---------------------------------
+
+    const savedBackground =
+        localStorage.getItem("phoneBackground");
+
+    if (savedBackground) {
+
+        applyBackground(savedBackground);
+
+    }
+
+
+    // ---------------------------------
+    // ЦВЕТ РАМКИ
+    // ---------------------------------
+
+    const savedColor =
+        localStorage.getItem("phoneFrameColor");
+
+    if (savedColor) {
+
+        applyPhoneColor(savedColor);
+
+    }
+
+}
+
+
+// =====================================
+// ЗАПУСК
+// =====================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        loadPhoneSettings();
+
+    }
+);
+
+</script>
+
+  <script>
   
+
+  // =====================================
+  // НАСТРОЙКИ ЗВУКОВ
+  // duration: null = проиграть полностью
+  // duration: число = проиграть указанное количество секунд
+  // =====================================
+  const soundSettings = {
+    sound1:  { file: './cave21.mp3', duration: null },
+    sound2:  { file: './challenge_complete_uHsY1YS.mp3', duration: 3 },
+    sound3:  { file: './grakon.mp3', duration: 3 },
+    sound4:  { file: './gta-v-death-sound-effect-102.mp3', duration: null },
+    sound5:  { file: './melstroi-pam-pam-pam.mp3', duration: 3 },
+    sound6:  { file: './minecraft-dirt-break-sound.mp3', duration: 2 },
+    sound7:  { file: './ozhidanie.mp3', duration: null },
+    sound8:  { file: './roblox-death-sound-effect.mp3', duration: 3 },
+    sound9:  { file: './throwing-flashbang-sound-effect-cs-go.mp3', duration: 2 },
+    sound10: { file: './vot-eto-povorot.mp3', duration: null }
+  };
+
+  let currentPhoneAudio = null;
+
+  // Проигрывает выбранный в настройках звук.
+  // Promise завершается только после полного проигрывания
+  // или после заданного количества секунд.
+  function playSelectedSound() {
+    return new Promise((resolve) => {
+      let saved = null;
+
+      try {
+        saved = JSON.parse(localStorage.getItem('selectedSoundSettings') || 'null');
+      } catch (e) {
+        saved = null;
+      }
+
+      const soundId = saved?.soundId || 'sound1';
+      const config = soundSettings[soundId] || soundSettings.sound1;
+
+      if (currentPhoneAudio) {
+        currentPhoneAudio.pause();
+        currentPhoneAudio.currentTime = 0;
+        currentPhoneAudio = null;
+      }
+
+      const audio = new Audio(config.file);
+      currentPhoneAudio = audio;
+      audio.volume = 1.0;
+
+      let finished = false;
+      let timer = null;
+
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        if (timer) clearTimeout(timer);
+        audio.removeEventListener('ended', finish);
+        audio.pause();
+        if (currentPhoneAudio === audio) currentPhoneAudio = null;
+        resolve();
+      };
+
+      audio.addEventListener('ended', finish, { once: true });
+
+      audio.play().catch((e) => {
+        console.log('Audio error:', e);
+        finish();
+      });
+
+      if (config.duration !== null) {
+        timer = setTimeout(finish, config.duration * 1000);
+      }
+    });
+  }
 
   // Смена заголовка при клике
   document.querySelectorAll(".icon").forEach(el => {
@@ -112,97 +415,69 @@
       document.getElementById("header").textContent = title;
     });
   });
-document.querySelector('.internet').addEventListener('click', ()=>{
-    const audio = new Audio('./cave21.mp3');
-    audio.volume = 1.0;
-    
-    audio.play().catch(e => console.log('Audio error:', e));
-    
+document.querySelector('.internet').addEventListener('click', async ()=>{
+    await playSelectedSound();
     // Задержка 3 секунды перед переходом
     setTimeout(() => {
         window.location.href = '../pageInternet/index.html';
     }, 3000);
 });
-  document.querySelector('.minecraft').addEventListener('click',()=>{
-     const audio = new Audio('./cave21.mp3');
-    audio.volume = 1.0;
-    
-    audio.play().catch(e => console.log('Audio error:', e));
+  document.querySelector('.minecraft').addEventListener('click', async ()=>{
+    await playSelectedSound();
     setTimeout(() => {
     window.location.href = '../pageMinecraft/indexMine.html'
     }, 3000);
   })
 
-  document.querySelector('.max').addEventListener('click',()=>{
-    const audio = new Audio('./cave21.mp3');
-    audio.volume = 1.0;
-    
-    audio.play().catch(e => console.log('Audio error:', e));
+  document.querySelector('.max').addEventListener('click', async ()=>{
+    await playSelectedSound();
     setTimeout(() => {
     window.location.href = 'https://web.max.ru/'
     }, 3000);
     
   })
 
-  document.querySelector('.vk_video').addEventListener('click',()=>{
-    const audio = new Audio('./cave21.mp3');
-    audio.volume = 1.0;
-    
-    audio.play().catch(e => console.log('Audio error:', e));
+  document.querySelector('.vk_video').addEventListener('click', async ()=>{
+    await playSelectedSound();
     setTimeout(() => {
     window.location.href = 'https://vkvideo.ru/'
     }, 3000);
     
   })
 
-  document.querySelector('.calc').addEventListener('click',()=>{
-    const audio = new Audio('./cave21.mp3');
-    audio.volume = 1.0;
-    
-    audio.play().catch(e => console.log('Audio error:', e));
+  document.querySelector('.calc').addEventListener('click', async ()=>{
+    await playSelectedSound();
     setTimeout(() => {
     window.location.href = '../pageCalculator/index.html'
     }, 3000);
     
   })
 
-  document.querySelector('.app-store').addEventListener('click',()=>{
-    const audio = new Audio('./cave21.mp3');
-    audio.volume = 1.0;
-    
-    audio.play().catch(e => console.log('Audio error:', e));
+  document.querySelector('.app-store').addEventListener('click', async ()=>{
+    await playSelectedSound();
     setTimeout(() => {
     window.location.href = 'https://apps.apple.com/us/iphone/apps'
     }, 3000);
     
   })
 
-  document.querySelector('.calendar').addEventListener('click',()=>{
-    const audio = new Audio('./cave21.mp3');
-    audio.volume = 1.0;
-    
-    audio.play().catch(e => console.log('Audio error:', e));
+  document.querySelector('.calendar').addEventListener('click', async ()=>{
+    await playSelectedSound();
     setTimeout(() => {
     window.location.href = '../pageCalendar/index.html'
     }, 3000);
     
   })
-  document.querySelector('.mash').addEventListener('click',()=>{
-    const audio = new Audio('./cave21.mp3');
-    audio.volume = 1.0;
-    
-    audio.play().catch(e => console.log('Audio error:', e));
+  document.querySelector('.mash').addEventListener('click', async ()=>{
+    await playSelectedSound();
     setTimeout(() => {
      window.location.href = 'https://school.mos.ru/?backUrl=https://school.mos.ru/diary/'
     }, 3000);
    
   })
 
-  document.querySelector('.settings').addEventListener('click',()=>{
-    const audio = new Audio('./cave21.mp3');
-    audio.volume = 1.0;
-    
-    audio.play().catch(e => console.log('Audio error:', e));
+  document.querySelector('.settings').addEventListener('click', async ()=>{
+    await playSelectedSound();
     setTimeout(() => {
      window.location.href = '../pageSettings/index.html'
     }, 3000);
@@ -276,5 +551,5 @@ renderTimeAndDay();
 // renderTimeAndDay();
 // ────────────────────────────────────────────────
 </script>
-</body>
-</html>
+
+</body></html>

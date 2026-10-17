@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings</title>
-    <link rel="stylesheet" href='./settings.css'>
+    <link rel="stylesheet" href="./settings.css">
     <style>
         
 .buttons{
@@ -126,7 +124,7 @@
 
     <div class="title">
         <svg viewBox="0 0 24 24">
-            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"/>
+            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"></path>
         </svg>
         Стиль иконок
     </div>
@@ -134,57 +132,57 @@
     
     <div class="items">
 
-        <div class="item active">
+        <div class="item">
             <div class="preview">
                 <img src="../assets/images/mine.jpg" alt="">
             </div>
 
             <div class="radio">
-                <input checked type="radio" name="style" id="mc">
+                <input checked="" type="radio" name="style" id="mc" data-style="minecraft">
                 <label for="mc"></label>
             </div>
         </div>
 
-        <div class="item active">
+        <div class="item">
             <div class="preview">
                 <img src="../assets/images/8371b4950c1d8bf7775bfda8401217fc.jpg" alt="">
             </div>
 
             <div class="radio">
-                <input type="radio" name="style" id="fortnite">
+                <input type="radio" name="style" id="fortnite" data-style="fortnite">
                 <label for="fortnite"></label>
             </div>
         </div>
 
-        <div class="item active">
+        <div class="item">
             <div class="preview">
                 <img src="../assets/images/poster.png" alt="">
             </div>
 
             <div class="radio">
-                <input type="radio" name="style" id="peak">
+                <input type="radio" name="style" id="peak" data-style="peak">
                 <label for="peak"></label>
             </div>
         </div>
 
-        <div class="item active">
+        <div class="item">
             <div class="preview">
                 <img src="../assets/images/rust_style3.webp" alt="">
             </div>
 
             <div class="radio">
-                <input type="radio" name="style" id="rust">
+                <input type="radio" name="style" id="rust" data-style="rust">
                 <label for="rust"></label>
             </div>
         </div>
 
-        <div class="item active">
+        <div class="item">
             <div class="preview">
                 <img src="../assets/images/EA_sports_fifa.png" alt="">
             </div>
 
             <div class="radio">
-                <input type="radio" name="style" id="fifa">
+                <input type="radio" name="style" id="fifa" data-style="ea">
                 <label for="fifa"></label>
             </div>
         </div>
@@ -194,7 +192,7 @@
             </div>
 
             <div class="radio">
-                <input type="radio" name="style" id="original">
+                <input type="radio" name="style" id="original" data-style="original">
                 <label for="original"></label>
             </div>
         </div>
@@ -207,76 +205,98 @@
 
     <div class="title">
         <svg viewBox="0 0 24 24">
-            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"/>
+            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"></path>
         </svg>
         Фон
     </div>
 
     <div class="items">
 
+        <!-- Фон 1 -->
         <div class="item active">
             <div class="preview">
-                <img src="../assets/images/5e68c8b5-ea07-4722-80e8-7c2614386872.png" alt="">
+                <img src="../assets/images/майн_крафт_обои.jpg" alt="">
             </div>
 
             <div class="radio">
-                <input checked type="radio" name="fon" id="fon1">
+                <input checked="" type="radio" name="fon" id="fon1" data-bg="../assets/images/майн_крафт_обои.jpg">
                 <label for="fon1"></label>
             </div>
         </div>
 
-        <div class="item active">
+
+        <!-- Фон 2 -->
+        <div class="item">
             <div class="preview">
-                <img src="../assets/images/fortnite_fon.jpg" alt="">
+                <img src="../assets/images/фортнайт_обои.jpg" alt="">
             </div>
 
             <div class="radio">
-                <input type="radio" name="fon" id="fon2">
+                <input type="radio" name="fon" id="fon2" data-bg="../assets/images/фортнайт_обои.jpg">
                 <label for="fon2"></label>
             </div>
         </div>
 
-        <div class="item active">
+
+        <!-- Фон 3 -->
+        <div class="item">
             <div class="preview">
-                <img src="../assets/images/peak.jpg" alt="">
+                <img src="../assets/images/peak_обои.jpg" alt="">
             </div>
 
             <div class="radio">
-                <input type="radio" name="fon" id="fon3">
+                <input type="radio" name="fon" id="fon3" data-bg="../assets/images/peak_обои2.jpg">
                 <label for="fon3"></label>
             </div>
         </div>
-        <div class="item active">
+
+
+        <!-- Фон 4 -->
+        <div class="item">
             <div class="preview">
-                <img src="../assets/images/rust_fon.jpg" alt="">
+                <img src="../assets/images/rust_обои.jpg" alt="">
             </div>
 
             <div class="radio">
-                <input type="radio" name="fon" id="fon4">
+                <input type="radio" name="fon" id="fon4" data-bg="../assets/images/rust_обои.jpg">
                 <label for="fon4"></label>
             </div>
         </div>
-         <div class="item active">
+
+
+        <!-- Фон 5 -->
+        <div class="item">
             <div class="preview">
                 <img src="../assets/images/fifa_fon.webp" alt="">
             </div>
 
             <div class="radio">
-                <input type="radio" name="fon" id="fon5">
+                <input type="radio" name="fon" id="fon5" data-bg="../assets/images/fifa_обои2.jpg">
                 <label for="fon5"></label>
             </div>
         </div>
-        <div class="item active">
-            <div class="preview plus">
-                <img src="../assets/images/abc8e7d7-b6c3-4af0-be9f-c168d3f27567 (1).png" alt="">
-                <span class="text_plus">Своя картинка</span>
-            </div>
 
-            <div class="radio">
-                <input type="radio" name="fon" id="fon5">
-                <label for="fon5"></label>
-            </div>
-        </div>
+
+        <!-- СВОЯ КАРТИНКА -->
+        <!-- СВОЯ КАРТИНКА -->
+<div class="item custom-background">
+
+    <div class="preview plus" id="customBackgroundButton">
+        <img id="customBackgroundPreview" src="../assets/images/abc8e7d7-b6c3-4af0-be9f-c168d3f27567 (1).png" alt="">
+
+        <span class="text_plus" id="customBackgroundText">
+            Своя картинка
+        </span>
+    </div>
+
+    <div class="radio">
+        <input type="radio" name="fon" id="fon6">
+        <label for="fon6"></label>
+    </div>
+
+    <input type="file" id="customBackgroundInput" accept="image/*" hidden="">
+
+</div>
 
     </div>
 
@@ -286,7 +306,7 @@
 
     <div class="title">
         <svg viewBox="0 0 24 24">
-            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"/>
+            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"></path>
         </svg>
         Цвет рамки телефона
     </div>
@@ -300,7 +320,7 @@
             </div>
 
             <div class="radio">
-                <input checked type="radio" name="color"  id="color1" class="white" data-color="#ffffff">
+                <input checked="" type="radio" name="color" id="color1" class="white" data-color="#ffffff">
                 <label for="color1"></label>
             </div>
         </div>
@@ -348,7 +368,7 @@
             </div>
 
             <div class="radio">
-                <input type="radio" name="color"  id="color5" class="red" data-color="#ff0000">
+                <input type="radio" name="color" id="color5" class="red" data-color="#ff0000">
                 <label for="color5"></label>
             </div>
         </div>
@@ -372,7 +392,7 @@
             </div>
 
             <div class="radio">
-                <input type="radio" name="color"  id="color7" class="#9219e6" data-color="#9219e6">
+                <input type="radio" name="color" id="color7" class="#9219e6" data-color="#9219e6">
                 <label for="color7"></label>
             </div>
         </div>
@@ -420,7 +440,7 @@
             </div>
 
             <div class="radio">
-                <input type="radio" name="color" id="color11" class="#f07100"  data-color="#f07100">
+                <input type="radio" name="color" id="color11" class="#f07100" data-color="#f07100">
                 <label for="color11"></label>
             </div>
         </div>
@@ -439,11 +459,7 @@
             </div>
 
             <!-- Палитра -->
-            <input
-                type="color"
-                id="customColorPicker"
-                value="#16ace9"
-            >
+            <input type="color" id="customColorPicker" value="#16ace9">
 
         </div>
 
@@ -455,7 +471,7 @@
 
     <div class="title">
         <svg viewBox="0 0 24 24">
-            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"/>
+            <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1.003 1.003 0 000-1.42l-2.5-2.5a1.003 1.003 0 00-1.42 0L14.96 5.1l3.75 3.75 2-1.64z"></path>
         </svg>
         Звуки
     </div>
@@ -478,7 +494,7 @@
             </div>
 
             <div class="radio">
-                <input checked type="radio" name="voice" id="voice1">
+                <input checked="" type="radio" name="voice" id="voice1">
                 <label for="voice1"></label>
             </div>
         </div>
@@ -596,7 +612,7 @@
       </span>
     </span>
   </button>
-  <br/>
+  <br>
 
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
@@ -612,55 +628,58 @@
   </div>
     
 
-    <div class="phone">
+    <div class="phone" id="phone">
 
   <div class="status-bar">
     <div class="left">
       <span>…l</span>
       <span>☀</span>
-      <span>Вс</span>
+      <span>Сб</span>
     </div>
     <div class="center icon2">
-      <img  src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt="">
+      <img src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt="">
       <span>iFruit</span>
     </div>
     <div class="right">
-      <span id="time">13:00</span>
+      <span id="time">13:10</span>
       <span>□</span>
     </div>
   </div>
 
   <div class="header" id="header">Список дел</div>
 
-  <div class="icons">
+  <div class="icons" id="icons">
 
-    <div class="icon mash" data-title="МЭШ">
+    <div class="icon mash" data-title="МЭШ" data-app="mash">
       <div style="position:relative">
         <img src="../assets/images/мэш_оригинал.webp" alt="mail">
-        <div class="badge">4</div>
+        
       </div>
       
     </div>
 
-    <div class="icon vk_video" data-title="VK Video">
+    <div class="icon vk_video" data-title="VK Video" data-app="vk">
       <img src="../assets/images/вк_оригинал.png" alt="chat">
       
     </div>
 
-    <div class="icon max" data-title="Мессенджер">
+    <div class="icon max" data-title="Мессенджер" data-app="max">
+        <div style="position:relative">
       <img src="../assets/images/макс_оригинал.jpg" alt="message">
+      <div class="badge">4</div>
+      </div>
       
     </div>
 
-    <div class="icon calendar" data-title="Погода">
+    <div class="icon calendar" data-title="Погода" data-app="weather">
       <img src="../assets/images/погода_оригинал.webp" alt="hh.ru">
       
     </div>
 
     
 
-    <div class="icon calc" data-title="Калькулятор">
-      <img id="calculator-img" src="../assets/images/калькулятор_оригинал.jpg" alt="todo">
+    <div class="icon calc" data-title="Калькулятор" data-app="calculator">
+      <img id="calculator-img" src="../assets/images/калькулятор_оригинал_2.jpg" alt="todo">
       
     </div>
 
@@ -668,104 +687,628 @@
 
 
 
-    <div class="icon app-store" data-title="App Store">
+    <div class="icon app-store" data-title="App Store" data-app="appstore">
       <img src="../assets/images/app_store_оригинал.webp" alt="club">
-      
     </div>
 
-    <div class="icon settings" data-title="Настройки">
-      <img src="../assets/images/настройки_rust.png" alt="settings">
+    <div class="icon settings" data-title="Настройки" data-app="settings">
+      <img src="../assets/images/настройки_оригинал.png" alt="settings">
      
     </div>
 
-    <div class="icon minecraft" data-title="Minecraft">
-      <img src="../assets/images/rust_style3.webp" alt="Minecraft">
+    <div class="icon minecraft" data-title="game" data-app="game">
+      <img src="../assets/images/mine.jpg" alt="game">
       
     </div>
 
-    <div class="icon internet" data-title="Интернет">
-      <img src="../assets/images/google_rust.png" alt="game">
+    <div class="icon internet" data-title="Интернет" data-app="google">
+      <img src="../assets/images/google_оригинал.jpg" alt="game">
       
     </div>
 
   </div>
 
-  <div class="dock">
+  <div class="dock" id="dock">
     <div class="btn icon3"><img src="../assets/images/photo_2026-02-28_15-51-04.jpg" alt=""></div>
-    <div class="btn icon3"><img  src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt=""></div>
+    <div class="btn icon3"><img src="../assets/images/photo_2026-02-28_15-41-48.jpg" alt=""></div>
     <div class="btn">←</div>
   </div>
 
 </div>
 
-
 <script>
-document.addEventListener("DOMContentLoaded", function () {
 
-    const phone = document.querySelector(".phone");
+const iconStyles = {
 
-    // Все готовые цвета
-    const colorInputs = document.querySelectorAll(
-        'input[name="color"][data-color]'
+    minecraft: {
+        mash: "../assets/images/МЭШ.png",
+        vk: "../assets/images/c2e5a878-53b6-4045-99e1-6d26818c7352.png",
+        max: "../assets/images/e9c55b83-c41d-4ac4-88e6-02a48c6adaba.png",
+        weather: "../assets/images/погода_mine.png",
+        calculator: "../assets/images/644a545fd6b5cf6548afafd19678bc63.jpg",
+        appstore: "../assets/images/65fbccf65517c7ff2d292d8c784ed8dc.jpg",
+        settings: "../assets/images/02000d7051a0f4b3f417567672a1923f.jpg",
+        game: "../assets/images/mine.jpg",
+        google: "../assets/images/c7164c9335d99550d46482e691f1dab5.jpg"
+    },
+
+    fortnite: {
+        mash: "../assets/images/МЭШ_fortnitte.png",
+        vk: "../assets/images/vk_video_fort.png",
+        max: "../assets/images/max_fort.png",
+        weather: "../assets/images/погода_fort.png",
+        calculator: "../assets/images/калькулятор_fort.png",
+        appstore: "../assets/images/app_store_fort.png",
+        settings: "../assets/images/настройки_fort.png",
+        game: "../assets/images/8371b4950c1d8bf7775bfda8401217fc.jpg",
+        google: "../assets/images/google_fort.png"
+    },
+
+    peak: {
+        mash: "../assets/images/mash_peak.png",
+        vk: "../assets/images/vk_video_peak.png",
+        max: "../assets/images/max_peak.png",
+        weather: "../assets/images/weather_peak.png",
+        calculator: "../assets/images/calculator_paek.png",
+        appstore: "../assets/images/app_store_peak.png",
+        settings: "../assets/images/settings_peak.png",
+        game: "../assets/images/rust_peak.png",
+        google: "../assets/images/google_peak.png"
+    },
+
+    rust: {
+        mash: "../assets/images/мэш_rust.png",
+        vk: "../assets/images/vk_rust.png",
+        max: "../assets/images/мах_rust.png",
+        weather: "../assets/images/погода_rust.png",
+        calculator: "../assets/images/калькулятор_rust.png",
+        appstore: "../assets/images/app_store_rust.png",
+        settings: "../assets/images/настройки_rust.png",
+        game: "../assets/images/rust_style3.webp",
+        google: "../assets/images/google_rust.png"
+    },
+
+    ea: {
+        mash: "../assets/images/мэш_fifa.png",
+        vk: "../assets/images/vk_fifa.png",
+        max: "../assets/images/мах_fifa.png",
+        weather: "../assets/images/погода_fifa.png",
+        calculator: "../assets/images/калькулятор_fifa.png",
+        appstore: "../assets/images/App_store_fifa.png",
+        settings: "../assets/images/настройки_fifa.png",
+        game: "../assets/images/EA_sports_fifa.png",
+        google: "../assets/images/google_fifa.png"
+    },
+
+    original: {
+        mash: "../assets/images/мэш_оригинал.webp",
+        vk: "../assets/images/вк_оригинал.png",
+        max: "../assets/images/макс_оригинал.jpg",
+        weather: "../assets/images/погода_оригинал.webp",
+        calculator: "../assets/images/калькулятор_оригинал.jpg",
+        appstore: "../assets/images/app_store_оригинал.webp",
+        settings: "../assets/images/настройки_оригинал.png",
+        game: "../assets/images/mine.jpg",
+        google: "../assets/images/google_оригинал.jpg"
+    }
+
+};
+
+
+// =====================================
+// ИКОНКИ
+// =====================================
+
+function applyIconStyle(selectedStyle) {
+
+    document.querySelectorAll("#icons .icon").forEach(icon => {
+
+        const appName = icon.dataset.app;
+        const img = icon.querySelector("img");
+
+        if (selectedStyle[appName]) {
+            img.src = selectedStyle[appName];
+        }
+
+    });
+
+}
+
+
+function changeIconStyle(styleName) {
+
+    const selectedStyle = iconStyles[styleName];
+
+    if (!selectedStyle) return;
+
+    localStorage.setItem(
+        "selectedIconStyle",
+        styleName
     );
 
-    colorInputs.forEach(input => {
+    applyIconStyle(selectedStyle);
+}
 
-        input.addEventListener("change", function () {
 
-            const color = this.dataset.color;
+// Выбор стиля
+document.querySelectorAll('input[name="style"]').forEach(radio => {
 
-            // Меняем рамку телефона
-            phone.style.borderColor = color;
+    radio.addEventListener("change", function () {
 
-            // Убираем active у всех
-            document.querySelectorAll(".item").forEach(item => {
-                item.classList.remove("active");
+        if (!this.checked) return;
+
+        changeIconStyle(this.dataset.style);
+
+        document.querySelectorAll('input[name="style"]')
+            .forEach(input => {
+                input.closest(".item")?.classList.remove("active");
             });
 
-            // Добавляем active выбранному
-            this.closest(".item").classList.add("active");
-        });
-
+        this.closest(".item")?.classList.add("active");
     });
 
-
-    // Свой цвет
-    const customRadio = document.getElementById("customColorRadio");
-    const customPicker = document.getElementById("customColorPicker");
-    const customItem = customRadio.closest(".item");
-    const customPreview = customItem.querySelector(".custom-color");
+});
 
 
-    // Нажали на "Свой цвет"
-    customPreview.addEventListener("click", function () {
+// =====================================
+// ФОН
+// =====================================
 
-        customRadio.checked = true;
+const phone = document.getElementById("phone");
 
-        // Открываем палитру
-        customPicker.click();
+const fonInputs = document.querySelectorAll(
+    'input[name="fon"][data-bg]'
+);
 
-    });
+const customBackgroundButton =
+    document.getElementById("customBackgroundButton");
+
+const customBackgroundInput =
+    document.getElementById("customBackgroundInput");
+
+const fon6 =
+    document.getElementById("fon6");
 
 
-    // Пользователь выбрал цвет
-    customPicker.addEventListener("input", function () {
+function applyBackground(background) {
 
-        const color = this.value;
+    if (!phone || !background) return;
 
-        // Меняем рамку телефона
-        phone.style.borderColor = color;
+    phone.style.backgroundImage = `url("${background}")`;
+    phone.style.backgroundSize = "cover";
+    phone.style.backgroundPosition = "center center";
+    phone.style.backgroundRepeat = "no-repeat";
+}
 
-        // Выделяем "Свой цвет"
-        document.querySelectorAll(".item").forEach(item => {
-            item.classList.remove("active");
-        });
 
-        customItem.classList.add("active");
+// Готовый фон
+fonInputs.forEach(input => {
+
+    input.addEventListener("change", function () {
+
+        if (!this.checked) return;
+
+        const background = new URL(
+            this.dataset.bg,
+            document.baseURI
+        ).href;
+
+        localStorage.setItem(
+            "phoneBackground",
+            background
+        );
+
+        applyBackground(background);
+
+        document.querySelectorAll('input[name="fon"]')
+            .forEach(input => {
+                input.closest(".item")?.classList.remove("active");
+            });
+
+        this.closest(".item")?.classList.add("active");
 
     });
 
 });
+
+
+// Своя картинка
+if (customBackgroundButton && customBackgroundInput) {
+
+    customBackgroundButton.addEventListener(
+        "click",
+        () => {
+            customBackgroundInput.click();
+        }
+    );
+
+
+    customBackgroundInput.addEventListener(
+        "change",
+        function () {
+
+            const file = this.files[0];
+
+            if (!file) return;
+
+            if (!file.type.startsWith("image/")) {
+                alert("Пожалуйста, выберите изображение");
+                return;
+            }
+
+
+            const reader = new FileReader();
+
+
+            reader.onload = function () {
+
+                const imageURL = reader.result;
+
+                try {
+
+                    localStorage.setItem(
+                        "phoneBackground",
+                        imageURL
+                    );
+
+                } catch (error) {
+
+                    alert(
+                        "Не удалось сохранить изображение. " +
+                        "Возможно, оно слишком большое."
+                    );
+
+                    return;
+                }
+
+
+                applyBackground(imageURL);
+
+                const customPreviewImage =
+                    document.getElementById("customBackgroundPreview");
+
+                if (customPreviewImage) {
+                    customPreviewImage.src = imageURL;
+                }
+
+                if (fon6) {
+
+                    fon6.checked = true;
+
+                    document.querySelectorAll('input[name="fon"]')
+                        .forEach(input => {
+                            input.closest(".item")?.classList.remove("active");
+                        });
+
+                    fon6.closest(".item")?.classList.add("active");
+                }
+
+            };
+
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+}
+
+
+// =====================================
+// ЦВЕТ РАМКИ
+// =====================================
+
+const colorInputs = document.querySelectorAll(
+    'input[name="color"][data-color]'
+);
+
+const customRadio =
+    document.getElementById("customColorRadio");
+
+const customPicker =
+    document.getElementById("customColorPicker");
+
+const customItem = customRadio
+    ? customRadio.closest(".item")
+    : null;
+
+const customPreview = customItem
+    ? customItem.querySelector(".custom-color")
+    : null;
+
+
+function applyPhoneColor(color) {
+
+    if (!phone) return;
+
+    phone.style.borderColor = color;
+
+
+    // Цвет плюса
+    if (customPreview) {
+
+        customPreview.style.setProperty(
+            "--custom-color",
+            color
+        );
+
+    }
+
+
+    // Цвет текста "Свой цвет"
+    const customText =
+        document.querySelector(
+            ".custom-color-item strong"
+        );
+
+    if (customText) {
+        customText.style.color = color;
+    }
+
+}
+
+
+// Готовые цвета
+colorInputs.forEach(input => {
+
+    input.addEventListener("change", function () {
+
+        if (!this.checked) return;
+
+        const color = this.dataset.color;
+
+        localStorage.setItem(
+            "phoneFrameColor",
+            color
+        );
+
+        applyPhoneColor(color);
+
+        document.querySelectorAll('input[name="color"]')
+            .forEach(input => {
+                input.closest(".item")?.classList.remove("active");
+            });
+
+        this.closest(".item")?.classList.add("active");
+
+    });
+
+});
+
+
+// Свой цвет
+if (
+    customPreview &&
+    customPicker &&
+    customRadio
+) {
+
+    customPreview.addEventListener(
+        "click",
+        function () {
+
+            customRadio.checked = true;
+
+            customPicker.click();
+
+        }
+    );
+
+
+    customPicker.addEventListener(
+        "input",
+        function () {
+
+            const color = this.value;
+
+            localStorage.setItem(
+                "phoneFrameColor",
+                color
+            );
+
+            applyPhoneColor(color);
+
+            customRadio.checked = true;
+
+            document.querySelectorAll('input[name="color"]')
+                .forEach(input => {
+                    input.closest(".item")?.classList.remove("active");
+                });
+
+            customItem.classList.add("active");
+
+        }
+    );
+
+}
+
+
+// =====================================
+// ЗАГРУЗКА СОХРАНЁННЫХ НАСТРОЕК
+// =====================================
+
+function loadPhoneSettings() {
+
+
+    // ---------------------------------
+    // ИКОНКИ
+    // ---------------------------------
+
+    const savedIconStyle =
+        localStorage.getItem("selectedIconStyle");
+
+
+    if (
+        savedIconStyle &&
+        iconStyles[savedIconStyle]
+    ) {
+
+        applyIconStyle(
+            iconStyles[savedIconStyle]
+        );
+
+
+        // Ставим галочку на выбранный стиль
+        const selectedRadio =
+            document.querySelector(
+                `input[name="style"][data-style="${savedIconStyle}"]`
+            );
+
+        document.querySelectorAll('input[name="style"]')
+            .forEach(input => {
+                input.checked = false;
+                input.closest(".item")?.classList.remove("active");
+            });
+
+        if (selectedRadio) {
+            selectedRadio.checked = true;
+            selectedRadio.closest(".item")?.classList.add("active");
+        }
+
+    } else {
+
+        // Если ничего ещё не сохранено — используем оригинальный стиль
+        const defaultStyle = document.querySelector(
+            'input[name="style"][data-style="original"]'
+        );
+
+        if (defaultStyle) {
+            defaultStyle.checked = true;
+            defaultStyle.closest(".item")?.classList.add("active");
+        }
+
+        changeIconStyle("original");
+
+    }
+
+
+    // ---------------------------------
+    // ФОН
+    // ---------------------------------
+
+    const savedBackground =
+        localStorage.getItem("phoneBackground");
+
+
+    if (savedBackground) {
+
+        applyBackground(savedBackground);
+
+        document.querySelectorAll('input[name="fon"]')
+            .forEach(input => {
+                input.checked = false;
+                input.closest(".item")?.classList.remove("active");
+            });
+
+        const matchingBackground =
+            Array.from(fonInputs).find(input => {
+
+                return new URL(
+                    input.dataset.bg,
+                    document.baseURI
+                ).href === savedBackground;
+
+            });
+
+
+        if (matchingBackground) {
+
+            matchingBackground.checked = true;
+
+            matchingBackground.closest(".item")
+                ?.classList.add("active");
+
+        } else if (fon6) {
+
+            // Загруженная пользователем картинка
+            fon6.checked = true;
+            fon6.closest(".item")?.classList.add("active");
+
+            const customPreviewImage =
+                document.getElementById("customBackgroundPreview");
+
+            if (customPreviewImage &&
+                savedBackground.startsWith("data:image/")) {
+                customPreviewImage.src = savedBackground;
+            }
+
+        }
+
+    }
+
+
+    // ---------------------------------
+    // ЦВЕТ РАМКИ
+    // ---------------------------------
+
+    const savedColor =
+        localStorage.getItem("phoneFrameColor");
+
+
+    if (savedColor) {
+
+        applyPhoneColor(savedColor);
+
+        document.querySelectorAll('input[name="color"]')
+            .forEach(input => {
+                input.checked = false;
+                input.closest(".item")?.classList.remove("active");
+            });
+
+        const matchingColor =
+            Array.from(colorInputs).find(input => {
+
+                return input.dataset.color.toLowerCase() ===
+                       savedColor.toLowerCase();
+
+            });
+
+
+        if (matchingColor) {
+
+            matchingColor.checked = true;
+
+            matchingColor.closest(".item")
+                ?.classList.add("active");
+
+        } else if (
+            customRadio &&
+            customPicker &&
+            customPreview
+        ) {
+
+            customRadio.checked = true;
+
+            customPicker.value = savedColor;
+
+            customPreview.style.setProperty(
+                "--custom-color",
+                savedColor
+            );
+
+            customItem.classList.add("active");
+
+        }
+
+    }
+
+    // ---------------------------------
+    // ЗВУК
+    // ---------------------------------
+    loadSelectedSound();
+
+}
+
+
+// =====================================
+// ЗАПУСК
+// =====================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadPhoneSettings
+);
+
 </script>
 
 <script>
@@ -779,20 +1322,70 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-        const colors = ['white', 'black', '#0ddaf2', 'blue', 'red', 'yellow', '#9219e6', '#66dc23', '#f94ad3', '#854f3f','#f07100'];
 
-colors.forEach(color => {
-    const radio = document.querySelector(`input[name="color"][class="${color}"]`);
-    if (radio) {
-        radio.addEventListener('change', function() {
-            if (this.checked) {
-                document.querySelector('.phone').style.borderColor = color;
-            }
-        });
+        // =====================================
+// НАСТРОЙКИ ЗВУКОВ
+// duration: null = проиграть полностью
+// duration: число = проиграть указанное количество секунд
+// Эти значения должны совпадать с настройками на основной странице.
+// =====================================
+const soundSettings = {
+    sound1:  { file: '../page3/cave21.mp3', duration: null },
+    sound2:  { file: '../page3/challenge_complete_uHsY1YS.mp3', duration: 3 },
+    sound3:  { file: '../page3/grakon.mp3', duration: 3 },
+    sound4:  { file: '../page3/gta-v-death-sound-effect-102.mp3', duration: null },
+    sound5:  { file: '../page3/melstroi-pam-pam-pam.mp3', duration: 3 },
+    sound6:  { file: '../page3/minecraft-dirt-break-sound.mp3', duration: 2 },
+    sound7:  { file: '../page3/ozhidanie.mp3', duration: null },
+    sound8:  { file: '../page3/roblox-death-sound-effect.mp3', duration: 3 },
+    sound9:  { file: '../page3/throwing-flashbang-sound-effect-cs-go.mp3', duration: 2 },
+    sound10: { file: '../page3/vot-eto-povorot.mp3', duration: null }
+};
+
+function saveSelectedSound(soundId) {
+    const config = soundSettings[soundId] || soundSettings.sound1;
+
+    localStorage.setItem('selectedSoundSettings', JSON.stringify({
+        soundId: soundId,
+        duration: config.duration
+    }));
+}
+
+function loadSelectedSound() {
+    let saved = null;
+
+    try {
+        saved = JSON.parse(localStorage.getItem('selectedSoundSettings') || 'null');
+    } catch (e) {
+        saved = null;
     }
+
+    const soundId = saved?.soundId || 'sound1';
+    const radio = document.getElementById(soundId.replace('sound', 'voice'));
+
+    document.querySelectorAll('input[name="voice"]').forEach(input => {
+        input.checked = false;
+    });
+
+    if (radio) {
+        radio.checked = true;
+    } else {
+        const defaultRadio = document.getElementById('voice1');
+        if (defaultRadio) defaultRadio.checked = true;
+        saveSelectedSound('sound1');
+    }
+}
+
+// При выборе звука сразу сохраняем его.
+document.querySelectorAll('input[name="voice"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        if (!radio.checked) return;
+        const soundId = radio.id.replace('voice', 'sound');
+        saveSelectedSound(soundId);
+    });
 });
 
-        function toggleSound(soundId) {
+function toggleSound(soundId) {
     const audio = document.getElementById(soundId);
     const img = document.getElementById('img-' + soundId);
     
@@ -860,6 +1453,7 @@ setInterval(advanceGameTime, REAL_SECONDS_PER_GAME_MINUTE * 1000);
 
 // Первое отображение (чтобы не ждать первую итерацию)
 renderTimeAndDay();
+
     </script>
-</body>
-</html>
+
+</div></body></html>
